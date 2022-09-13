@@ -1,0 +1,4 @@
+useState en react permet de fait le reaffichage à chaque fois
+qu'on invoque l'element sur le quel il est appelé
+
+useEffect en react permet 
