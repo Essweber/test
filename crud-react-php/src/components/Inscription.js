@@ -23,7 +23,7 @@ export default function Inscription() {
     }
     return (
         <div>
-            <h1>Create user</h1>
+            <h1>Inscription</h1>
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>

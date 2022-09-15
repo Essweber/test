@@ -47,7 +47,7 @@ export default function ListUser() {
                             <td>{user.password}</td>
                             <td>{user.type}</td>
                              <td>
-                                <Link to={`user/${user.id}/edit`} style={{marginRight: "10px"}}>Edit</Link>
+                                <Link to={`${user.id}/edit`} style={{marginRight: "10px"}}>Edit</Link>
                                <button onClick={() => deleteUser(user.id)}>Delete</button>
                            </td> 
                         </tr>

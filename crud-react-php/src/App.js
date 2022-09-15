@@ -4,7 +4,11 @@ import './App.css';
 import Inscription from './components/Inscription';
 import Home from './components/Home';
 import ListUser from './components/ListUser';
-// import EditUser from './components/EditUser';
+import EditUser from './components/EditUser';
+import Services from './components/Participant';
+import Organisateur from './components/Organisateur';
+import Participant from './components/Participant';
+
 
 
 function App() { 
@@ -20,9 +24,10 @@ function App() {
     <nav>
       <ul>
         <li><Link to='/'>A propos</Link></li>
-        <li><Link to='/'>services</Link></li>
+        <li><Link to='/services/organisateur'>organisateur</Link></li>
+        <li><Link to='/services/participant'>Participant</Link></li>
         <li><Link to='/'>Contact</Link></li>
-        <li><Link to='/users'>List users</Link></li>
+        <li><Link to='/user'>List users</Link></li>
         <li></li>
         {/* <li><Link to='user/inscription'>edit users</Link></li> */}
       </ul>
@@ -35,8 +40,10 @@ function App() {
     <Routes>
       <Route index element={<Home />} />
       <Route path='user/inscription' element={<Inscription />} />
-      <Route path='/users' element={<ListUser />} />
-    
+      <Route path='/user' element={<ListUser />} />
+      <Route path='/services/organisateur' element={<Organisateur />} />
+      <Route path='/services/participant' element={<Participant />} />
+      <Route path='user/:id/edit' element={<EditUser />} />
     </Routes>
     </BrowserRouter>
    

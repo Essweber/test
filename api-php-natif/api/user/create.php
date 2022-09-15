@@ -17,7 +17,6 @@
 
   // Get raw user data
   $data = json_decode(file_get_contents("php://input"));
-var_dump($data);
   $user->fname = $data->fname;
   $user->lname = $data->lname;
   $user->email = $data->email;
