@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function ListUser() {
+export default function Inscription() {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
@@ -15,7 +15,7 @@ export default function ListUser() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/post/create.php', inputs).then(function(response){
+        axios.post('http://localhost/test/api-php-natif/api/user/create.php', inputs).then(function(response){
             console.log(response.data);
             navigate('/');
         });
@@ -29,36 +29,58 @@ export default function ListUser() {
                     <tbody>
                         <tr>
                             <th>
-                                <label>titre: </label>
+                                <label>fname: </label>
                             </th>
                             <td>
-                                <input type="text" name="title" onChange={handleChange} />
+                                <input type="text" name="fname" onChange={handleChange} />
                             </td>
                         </tr>
+
                         <tr>
                             <th>
-                                <label>Email: </label>
+                                <label>lname: </label>
                             </th>
                             <td> 
-                                <input type="text" name="body" onChange={handleChange} />
+                                <input type="text" name="lname" onChange={handleChange} />
                             </td>
                         </tr>
+
                         <tr>
                             <th>
-                                <label>Mobile: </label>
+                                <label>email: </label>
                             </th>
                             <td>
-                                <input type="text" name="author" onChange={handleChange} />
+                                <input type="text" name="email" onChange={handleChange} />
                             </td>
                         </tr>
+
                         <tr>
                             <th>
-                                <label>Mobile: </label>
+                                <label>password: </label>
                             </th>
                             <td>
-                                <input type="text" name="category_id" onChange={handleChange} />
+                                <input type="text" name="password" onChange={handleChange} />
                             </td>
                         </tr>
+                       
+                        <tr>
+                            <th>
+                                <label>tel: </label>
+                            </th>
+                            <td>
+                                <input type="text" name="tel" onChange={handleChange} />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <label>type: </label>
+                            </th>
+                            <td>
+                                <input type="text" name="type" onChange={handleChange} />
+                            </td>
+                        </tr>
+
                         <tr>
                             <td colSpan="2" align ="right">
                                 <button>Save</button>

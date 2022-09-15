@@ -29,14 +29,14 @@
 
       $user_item = array(
         'id' => $id,
-        'fname' => $fname,
-        'lname' => $lname,
-        'email' => $email,
-        'password' => $password,
-        'type' => $type,
-        'tel' => $tel,
-        'created_at' => $created_at,
-        'updated_at' => $updated_at
+        'user_fname' => $user_fname,
+        'user_lname' => $user_lname,
+        'user_email' => $user_email,
+        'user_password' => $user_password,
+        'user_type_id' => $user_type_id,
+        'user_tel' => $user_tel,
+        'user_created_at' => $user_created_at,
+        'user_updated_at' => $user_updated_at
       );
 
       // Push to "data"

@@ -6,34 +6,37 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
   include_once '../../config/Database.php';
-  include_once '../../models/Post.php';
+  include_once '../../models/user.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog post object
-  $post = new Post($db);
+  // Instantiate blog user object
+  $user = new user($db);
 
-  // Get raw posted data
+  // Get raw user data
   $data = json_decode(file_get_contents("php://input"));
 
   // Set ID to update
-  $post->id = $data->id;
+  $user->id = $data->id;
+  $user->fname = $data->fname;
+  $user->lname = $data->lname;
+  $user->email = $data->email;
+  $user->password = $data->password;
+   $user->tel = $data->tel;
+ $user->type = $data->type;
+  $user->created_at = "2022-09-11 01:05:25";
+  $user->updated_at = "2022-09-11 01:05:25";
 
-  $post->title = $data->title;
-  $post->body = $data->body;
-  $post->author = $data->author;
-  $post->category_id = $data->category_id;
-
-  // Update post
-  if($post->update()) {
+  // Update user
+  if($user->update()) {
     echo json_encode(
-      array('message' => 'Post Updated')
+      array('message' => 'user Updated')
     );
   } else {
     echo json_encode(
-      array('message' => 'Post Not Updated')
+      array('message' => 'user Not Updated')
     );
   }
 

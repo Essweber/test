@@ -2,7 +2,7 @@
   class Database {
     // DB Params
     private $host = 'localhost';
-    private $db_name = 'api-php-natif';
+    private $db_name = 'pre-projet';
     private $username = 'root';
     private $password = 'root';
     private $conn;

@@ -4,30 +4,33 @@
   header('Content-Type: application/json');
 
   include_once '../../config/Database.php';
-  include_once '../../models/Post.php';
+  include_once '../../models/user.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog post object
-  $post = new Post($db);
+  // Instantiate blog user object
+  $user = new user($db);
 
   // Get ID
-  $post->id = isset($_GET['id']) ? $_GET['id'] : die();
+  $user->id = isset($_GET['id']) ? $_GET['id'] : die();
 
-  // Get post
-  $post->read_single();
+  // Get user
+  $user->read_single();
 
   // Create array
-  $post_arr = array(
-    'id' => $post->id,
-    'title' => $post->title,
-    'body' => $post->body,
-    'author' => $post->author,
-    'category_id' => $post->category_id,
-    'category_name' => $post->category_name
+  $user_arr = array(
+    'id' => $user->id,
+    'fname' => $user->fname,
+    'lname' => $user->lname,
+    'email' => $user->email,
+    'password' => $user->password,
+    'type' => $user->type,
+    'tel' => $user->tel,
+    'created_at' => $user->created_at,
+    'updated_at' => $user->updated_at
   );
 
   // Make JSON
-  print_r(json_encode($post_arr));
+  print_r(json_encode($user_arr));

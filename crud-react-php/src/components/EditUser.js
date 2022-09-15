@@ -14,7 +14,7 @@ export default function ListUser() {
     }, []);
 
     function getUser() {
-        axios.get(`http://localhost/test/api-php-natif/api/post/read_single.php?id=${id}`).then(function(response) {
+        axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php?id=${id}`).then(function(response) {
             console.log(response.data);
             setInputs(response.data);
         });
@@ -29,7 +29,7 @@ export default function ListUser() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.put(`http://localhost/test/api-php-natif/api/post/update.php/?id=${id}`, inputs).then(function(response){
+        axios.put(`http://localhost/test/api-php-natif/api/user/update.php/?id=${id}`, inputs).then(function(response){
             console.log(response.data);
             navigate('/');
         });
@@ -41,38 +41,60 @@ export default function ListUser() {
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>
-                        <tr>
+                    <tr>
                             <th>
-                                <label>Name: </label>
+                                <label>fname: </label>
                             </th>
                             <td>
-                                <input value={inputs.title} type="text" name="title" onChange={handleChange} />
+                                <input value={inputs.fname} type="text" name="fname" onChange={handleChange} />
                             </td>
                         </tr>
+
                         <tr>
                             <th>
-                                <label>Email: </label>
+                                <label>lname: </label>
                             </th>
                             <td> 
-                                <input value={inputs.body} type="text" name="body" onChange={handleChange} />
+                                <input value={inputs.lname} type="text" name="lname" onChange={handleChange} />
                             </td>
                         </tr>
+
                         <tr>
                             <th>
-                                <label>Mobile: </label>
+                                <label>email: </label>
                             </th>
                             <td>
-                                <input value={inputs.author} type="text" name="author" onChange={handleChange} />
+                                <input value={inputs.email} type="text" name="email" onChange={handleChange} />
                             </td>
                         </tr>
+
                         <tr>
                             <th>
-                                <label>Mobile: </label>
+                                <label>password: </label>
                             </th>
                             <td>
-                                <input value={inputs.category_id} type="text" name="category_id" onChange={handleChange} />
+                                <input value={inputs.password} type="text" name="password" onChange={handleChange} />
                             </td>
                         </tr>
+                       
+                        <tr>
+                            <th>
+                                <label>tel: </label>
+                            </th>
+                            <td>
+                                <input value={inputs.tel} type="text" name="tel" onChange={handleChange} />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <label>type: </label>
+                            </th>
+                            <td>
+                                <input value={inputs.type} type="text" name="type" onChange={handleChange} />
+                            </td>
+                        </tr>
+
                         <tr>
                             <td colSpan="2" align ="right">
                                 <button>Save</button>

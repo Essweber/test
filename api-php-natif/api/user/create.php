@@ -18,14 +18,14 @@
   // Get raw user data
   $data = json_decode(file_get_contents("php://input"));
 var_dump($data);
-  $user->user_fname = $data->user_fname;
-  $user->user_lname = $data->user_lname;
-  $user->user_email = $data->user_email;
-  $user->user_password = $data->user_password;
-  $user->user_type_id = $data->user_type_id;
-  $user->user_tel = $data->user_tel;
-  $user->user_created_at = $data->user_created_at;
-  $user->user_updated_at = $data->user_updated_at;
+  $user->fname = $data->fname;
+  $user->lname = $data->lname;
+  $user->email = $data->email;
+  $user->password = $data->password;
+  $user->tel = $data->tel;
+  $user->type = $data->type;
+  // $user->created_at = "2022-09-11 01:05:25";
+  // $user->updated_at = "2022-09-11 01:05:25";
 
   // Create user
   if($user->create()) {
