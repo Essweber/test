@@ -1,17 +1,14 @@
 <?php 
-  class user {
+  class organisation {
     // DB stuff
     private $conn;
-    private $table = 'users';
+    private $table = 'organisations';
 
-    // user Properties
+    // organisation Properties
     public $id;
-    public $fname;
-    public $lname;
-    public $email;
-    public $password;
-    public $type_id;
-    public $tel;
+    public $activites;
+    public $adresse;
+    public $user_id;
     public $created_at;
     public $updated_at;
 
@@ -20,7 +17,6 @@
       $this->conn = $db;
     }
 
-    // Get users
     public function read() {
       // Create query
       $query = 'SELECT * FROM ' . $this->table ;
@@ -34,7 +30,7 @@
       return $stmt;
     }
 
-    // Get Single user
+    // Get Single organisation
     // public function read_single() {
     //       // Create query
     //       $query = 'SELECT c.name as category_name, p.id, p.category_id, p.title, p.body, p.author, p.created_at
@@ -64,29 +60,26 @@
     //       $this->category_name = $row['category_name'];
     // }
 
-    // Create user
+    // Create organisation
     public function create() {
           // Create query
-          $query = 'INSERT INTO ' . $this->table . ' SET fname = :fname, lname = :lname, email = :email, password = :password, type = :type, tel = :tel';
+          $query = 'INSERT INTO ' . $this->table . ' SET name = :name, activites = :activites, adresse = :adresse, creator_id = :creator_id';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Clean data
-          $this->fname = htmlspecialchars(strip_tags($this->fname));
-          $this->lname = htmlspecialchars(strip_tags($this->lname));
-          $this->email = htmlspecialchars(strip_tags($this->email));
-          $this->password = htmlspecialchars(strip_tags($this->password));
-          $this->type = htmlspecialchars(strip_tags($this->type));
-          $this->tel = htmlspecialchars(strip_tags($this->tel));
+          $this->name = htmlspecialchars(strip_tags($this->name));
+          $this->activites = htmlspecialchars(strip_tags($this->activites));
+          $this->adresse = htmlspecialchars(strip_tags($this->adresse));
+          $this->creator_id = htmlspecialchars(strip_tags($this->creator_id));
+        
 
           // Bind data
-          $stmt->bindParam(':user_fname', $this->fname);
-          $stmt->bindParam(':user_lname', $this->lname);
-          $stmt->bindParam(':user_email', $this->email);
-          $stmt->bindParam(':user_password', $this->password);
-          $stmt->bindParam(':user_type_id', $this->type);
-          $stmt->bindParam(':user_tel', $this->tel);
+          $stmt->bindParam(':name', $this->name);
+          $stmt->bindParam(':activites', $this->activites);
+          $stmt->bindParam(':adresse', $this->adresse);
+          $stmt->bindParam(':creator_id', $this->creator_id);
 
           // Execute query
           if($stmt->execute()) {
@@ -99,7 +92,7 @@
     //   return false;
     // }
 
-    // // Update user
+    // // Update organisation
     // public function update() {
     //       // Create query
     //       $query = 'UPDATE ' . $this->table . '
@@ -134,7 +127,7 @@
     //       return false;
     // }
 
-    // // Delete user
+    // // Delete organisation
     // public function delete() {
     //       // Create query
     //       $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';

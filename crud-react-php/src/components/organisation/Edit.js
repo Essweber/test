@@ -1,21 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function Organisation_connexion() {
+export default function Organisation_edit() {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
 
+    const {id} = useParams();
+
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    function getUser() {
+        axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php?id=${id}`).then(function(response) {
+            console.log(response.data);
+            setInputs(response.data);
+        });
+    }
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
+        // console.log(value);
         setInputs(values => ({...values, [name]: value}));
     }
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/user/create.php', inputs).then(function(response){
+        axios.put(`http://localhost/test/api-php-natif/api/user/update.php/?id=${id}`, inputs).then(function(response){
             console.log(response.data);
             navigate('/');
         });
@@ -23,16 +37,16 @@ export default function Organisation_connexion() {
     }
     return (
         <div>
-            <h1>Inscription</h1>
+            <h1>Edit user</h1>
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>
-                        <tr>
+                    <tr>
                             <th>
                                 <label>fname: </label>
                             </th>
                             <td>
-                                <input type="text" name="fname" onChange={handleChange} />
+                                <input value={inputs.fname} type="text" name="fname" onChange={handleChange} />
                             </td>
                         </tr>
 
@@ -41,7 +55,7 @@ export default function Organisation_connexion() {
                                 <label>lname: </label>
                             </th>
                             <td> 
-                                <input type="text" name="lname" onChange={handleChange} />
+                                <input value={inputs.lname} type="text" name="lname" onChange={handleChange} />
                             </td>
                         </tr>
 
@@ -50,7 +64,7 @@ export default function Organisation_connexion() {
                                 <label>email: </label>
                             </th>
                             <td>
-                                <input type="text" name="email" onChange={handleChange} />
+                                <input value={inputs.email} type="text" name="email" onChange={handleChange} />
                             </td>
                         </tr>
 
@@ -59,7 +73,7 @@ export default function Organisation_connexion() {
                                 <label>password: </label>
                             </th>
                             <td>
-                                <input type="text" name="password" onChange={handleChange} />
+                                <input value={inputs.password} type="text" name="password" onChange={handleChange} />
                             </td>
                         </tr>
                        
@@ -68,7 +82,7 @@ export default function Organisation_connexion() {
                                 <label>tel: </label>
                             </th>
                             <td>
-                                <input type="text" name="tel" onChange={handleChange} />
+                                <input value={inputs.tel} type="text" name="tel" onChange={handleChange} />
                             </td>
                         </tr>
 
@@ -77,7 +91,7 @@ export default function Organisation_connexion() {
                                 <label>type: </label>
                             </th>
                             <td>
-                                <input type="text" name="type" onChange={handleChange} />
+                                <input value={inputs.type} type="text" name="type" onChange={handleChange} />
                             </td>
                         </tr>
 

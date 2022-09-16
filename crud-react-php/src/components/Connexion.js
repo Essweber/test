@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Organisation_connexion() {
+export default function Connexion() {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
@@ -15,7 +15,7 @@ export default function Organisation_connexion() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/user/create.php', inputs).then(function(response){
+        axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs).then(function(response){
             console.log(response.data);
             navigate('/');
         });
@@ -23,28 +23,11 @@ export default function Organisation_connexion() {
     }
     return (
         <div>
-            <h1>Inscription</h1>
+            <h1>Connexion</h1>
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>
-                        <tr>
-                            <th>
-                                <label>fname: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="fname" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
-                                <label>lname: </label>
-                            </th>
-                            <td> 
-                                <input type="text" name="lname" onChange={handleChange} />
-                            </td>
-                        </tr>
-
+                       
                         <tr>
                             <th>
                                 <label>email: </label>
@@ -63,23 +46,7 @@ export default function Organisation_connexion() {
                             </td>
                         </tr>
                        
-                        <tr>
-                            <th>
-                                <label>tel: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="tel" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
-                                <label>type: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="type" onChange={handleChange} />
-                            </td>
-                        </tr>
+                       
 
                         <tr>
                             <td colSpan="2" align ="right">

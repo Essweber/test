@@ -8,6 +8,10 @@ import EditUser from './components/EditUser';
 import Services from './components/Participant';
 import Organisateur from './components/Organisateur';
 import Participant from './components/Participant';
+import Connexion from './components/Connexion';
+import Organisation_Inscription from './components/organisation/Organisation_Inscription';
+import Organisation_list from './components/organisation/Organisation_list';
+import Organisation_edit from './components/organisation/Organisation_edit';
 
 
 
@@ -28,6 +32,7 @@ function App() {
         <li><Link to='/services/participant'>Participant</Link></li>
         <li><Link to='/'>Contact</Link></li>
         <li><Link to='/user'>List users</Link></li>
+        <li><Link to='/organisation/list'>organisations</Link></li>
         <li></li>
         {/* <li><Link to='user/inscription'>edit users</Link></li> */}
       </ul>
@@ -40,10 +45,17 @@ function App() {
     <Routes>
       <Route index element={<Home />} />
       <Route path='user/inscription' element={<Inscription />} />
+      <Route path='user/connexion' element={<Connexion />} />
       <Route path='/user' element={<ListUser />} />
       <Route path='/services/organisateur' element={<Organisateur />} />
       <Route path='/services/participant' element={<Participant />} />
       <Route path='user/:id/edit' element={<EditUser />} />
+
+      {/* ORGANISATION */}
+      <Route path='/organisation/create' element={<Organisation_Inscription />} />
+      <Route path='/organisation/list' element={<Organisation_list />} />
+      <Route path='/organisation/edit' element={<Organisation_edit />} />
+      
     </Routes>
     </BrowserRouter>
    

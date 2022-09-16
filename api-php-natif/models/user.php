@@ -64,6 +64,7 @@
           $this->updated_at = $row['updated_at'];
     }
 
+
     // Create user
     public function create() {
           // Create query

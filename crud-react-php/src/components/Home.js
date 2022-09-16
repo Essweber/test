@@ -34,12 +34,12 @@ export default function Home() {
                 <div >
                     <h1>Organisateur</h1>
                     <p>Lorem, dolorem quas reiciendis, rerum culpa quo vel. Voluptatibus unde rerum explicabo quaerat, quis accusantium sunt, est placeat commodi expedita omnis!</p>
-                    <Link to={"/services/organisateur"}>voir</Link>
+                    <button><Link to={"/services/organisateur"}>voir</Link></button>
                 </div>
                 <div>
                     <h1>Organisateur</h1>
                     <p>Lorem, dolorem quas reiciendis, rerum culpa quo vel. Voluptatibus unde rerum explicabo quaerat, quis accusantium sunt, est placeat commodi expedita omnis!</p>
-                    <Link to={"/services/participant"}>voir</Link>
+                    <button><Link to={"/services/participant"}>voir</Link></button>
                 </div>
             </div>
 

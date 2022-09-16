@@ -6,32 +6,35 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
   include_once '../../config/Database.php';
-  include_once '../../models/organisation.php';
+  include_once '../../models/user.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog organisation object
-  $organisation = new organisation($db);
+  // Instantiate blog user object
+  $user = new user($db);
 
-  // Get raw organisation data
+  // Get raw user data
   $data = json_decode(file_get_contents("php://input"));
-var_dump($data);
-  $organisation->name = $data->name;
-  $organisation->activites = $data->activites;
-  $organisation->adresse = $data->adresse;
-  $organisation->creator_id = $data->creator_id;
+  $user->fname = $data->fname;
+  $user->lname = $data->lname;
+  $user->email = $data->email;
+  $user->password = $data->password;
+  $user->tel = $data->tel;
+  $user->type = $data->type;
+  // $user->created_at = "2022-09-11 01:05:25";
+  // $user->updated_at = "2022-09-11 01:05:25";
 
-  // Create organisation
-  if($organisation->create()) {
+  // Create user
+  if($user->create()) {
     
     echo json_encode(
-      array('message' => 'organisation Created')
+      array('message' => 'user Created')
     );
   } else {echo "sorry";
     echo json_encode(
-      array('message' => 'organisation Not Created')
+      array('message' => 'user Not Created')
     );
   }
 

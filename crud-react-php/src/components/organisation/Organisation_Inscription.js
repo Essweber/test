@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Organisation_connexion() {
+export default function Organisation_Inscription() {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
@@ -15,7 +15,7 @@ export default function Organisation_connexion() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/user/create.php', inputs).then(function(response){
+        axios.post('http://localhost/test/api-php-natif/api/organisation/create.php', inputs).then(function(response){
             console.log(response.data);
             navigate('/');
         });
@@ -23,63 +23,46 @@ export default function Organisation_connexion() {
     }
     return (
         <div>
-            <h1>Inscription</h1>
+            <h1>créez votre organisation</h1>
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>
                         <tr>
                             <th>
-                                <label>fname: </label>
+                                <label>nom: </label>
                             </th>
                             <td>
-                                <input type="text" name="fname" onChange={handleChange} />
+                                <input type="text" name="name" onChange={handleChange} />
                             </td>
                         </tr>
 
                         <tr>
                             <th>
-                                <label>lname: </label>
+                                <label>secteur d'activités: </label>
                             </th>
                             <td> 
-                                <input type="text" name="lname" onChange={handleChange} />
+                                <input type="text" name="activites" onChange={handleChange} />
                             </td>
                         </tr>
 
                         <tr>
                             <th>
-                                <label>email: </label>
+                                <label>adresse: </label>
                             </th>
                             <td>
-                                <input type="text" name="email" onChange={handleChange} />
+                                <input type="text" name="adresse" onChange={handleChange} />
                             </td>
                         </tr>
 
                         <tr>
                             <th>
-                                <label>password: </label>
+                                <label>créé par: </label>
                             </th>
                             <td>
-                                <input type="text" name="password" onChange={handleChange} />
+                                <input type="text" name="creator_id" onChange={handleChange} />
                             </td>
                         </tr>
                        
-                        <tr>
-                            <th>
-                                <label>tel: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="tel" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
-                                <label>type: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="type" onChange={handleChange} />
-                            </td>
-                        </tr>
 
                         <tr>
                             <td colSpan="2" align ="right">
