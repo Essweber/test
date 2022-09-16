@@ -15,22 +15,8 @@
 
 .App-header {
   background-color: #406cdc;
-  height: 70px;
-  display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  justify-content: space-around;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-nav{
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {

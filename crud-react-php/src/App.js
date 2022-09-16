@@ -13,6 +13,15 @@ import Inscription_organisation from './components/organisation/Inscription';
 import List from './components/organisation/List';
 import Edit from './components/organisation/Edit';
 
+// Navbar
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+import Button from 'react-bootstrap/Button';
+
+
 
 
 function App() { 
@@ -20,27 +29,43 @@ function App() {
   return (
     <div className="App">
 
+
+    <>
+    
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="/">EazyEvent</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#features">A propos</Nav.Link>
+            <Nav.Link href="#pricing">Contact</Nav.Link>
+            <NavDropdown title="Services" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/services/organisateur">Organisateur</NavDropdown.Item>
+              <NavDropdown.Item href="/services/participant">Participant</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Autre
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+          <Button href="user/inscription" variant="primary">Inscription</Button>
+          <Button href="user/Connexion" variant="primary">Connexion</Button>
+            
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+    </>
+
+
+
     <BrowserRouter>
     <header className='App-header'>
-    <div className="">
-      <Link to='/'>EAZYEVENT</Link>
-</div>
-    <nav>
-      <ul>
-        <li><Link to='/'>A propos</Link></li>
-        <li><Link to='/services/organisateur'>organisateur</Link></li>
-        <li><Link to='/services/participant'>Participant</Link></li>
-        <li><Link to='/'>Contact</Link></li>
-        <li><Link to='/user'>List users</Link></li>
-        <li><Link to='/organisation/list'>organisations</Link></li>
-        <li></li>
-        {/* <li><Link to='user/inscription'>edit users</Link></li> */}
-      </ul>
-    </nav>
-    <div className="">
-    <Link to='/user/inscription'>Inscription</Link>
-      <Link to='/user/connexion'>connexion</Link>
-</div>
+    <div className=""></div>
+ 
     </header>
     <Routes>
       <Route index element={<Home />} />
@@ -64,3 +89,34 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+// <nav>
+// <Link to='/'>EAZYEVENT</Link>
+
+
+
+
+
+
+
+
+// <ul>
+//   <li><Link to='/'>A propos</Link></li>
+//   <li><Link to='/services/organisateur'>organisateur</Link></li>
+//   <li><Link to='/services/participant'>Participant</Link></li>
+//   <li><Link to='/'>Contact</Link></li>
+//   <li><Link to='/user'>List users</Link></li>
+//   <li><Link to='/organisation/list'>organisations</Link></li>
+//   <li></li>
+//   {/* <li><Link to='user/inscription'>edit users</Link></li> */}
+// </ul>
+
+// <div className="">
+// <Link to='/user/inscription'>Inscription</Link>
+// <Link to='/user/connexion'>connexion</Link>
+// </div>
+// </nav>

@@ -25,13 +25,27 @@ img{
 
 }
 .home-content{
+    
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
+.form-container{
+    display: flex;
+    flex-direction: column;
+}
 .welcome-img{
     width: 100%;
     overflow: hidden;
 }
-
+.contact-form{
+    
+    display: flex;
+    margin: auto;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

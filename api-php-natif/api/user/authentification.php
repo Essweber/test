@@ -23,6 +23,7 @@ $db = $database->connect();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data=json_decode(file_get_contents("php://input", true));
+    // var_dump($data);
 
     $email = htmlentities(strip_tags($data->email));
     $password = htmlentities(strip_tags($data->password));
@@ -30,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    
 
     $query = 'SELECT * FROM users WHERE email = :email AND password = :password';
+    // $query = 'SELECT * FROM users WHERE email = "aessotchossim@gmail.com"AND password = "boss"';
 
     // Prepare statement
     $stmt = $db->prepare($query);
@@ -39,11 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
 
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    // print_r($datas);
+    print_r($data);
     // echo $data['id'];
 
-    // // $obj->getResult();
-    // foreach ($datas as $data) {
+if ($data) {
+    
+
         $id=$data['id'];
         $fname=$data['fname'];
         $lname=$data['lname'];
@@ -53,11 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $type=$data['type'];
         $created_at=$data['created_at'];
         $updated_at=$data['updated_at'];
-        if (password_verify($password,$data['password'])) {
-           echo json_encode([
-            'status' =>0,
-            'message' =>'Invalid Caraditional',
-           ]);
        
         $payload=[
             'iss'=>"localhost",
@@ -68,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'fname'=>$fname,
                 'lname'=>$lname,
                 'email'=>$email,
-                'password'=>$password,
+                // 'password'=>$password,
                 'tel'=>$tel,
                 'type'=>$type,
                 'created_at'=>$created_at,
@@ -82,7 +80,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'jwt' => $jwt,
             'message' => 'Login successfully',
         ]);
- }
+    }
+    else {
+        echo json_encode([
+            'status' => 0,
+            'message' => 'Ssssssory !!!',
+        ]);
+    }
 
 
 }else{

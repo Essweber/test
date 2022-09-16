@@ -15,12 +15,16 @@ export default function Connexion() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs).then(function(response){
-            console.log(response.data);
+        axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
+        .then(function(response){
+            console.log(response.data)
+            
             navigate('/');
-        });
+        })
+        .catch(error => console.log(error));
         
     }
+                
     return (
         <div>
             <h1>Connexion</h1>
