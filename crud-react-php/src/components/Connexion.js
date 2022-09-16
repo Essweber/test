@@ -17,7 +17,7 @@ export default function Connexion() {
 
         axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
         .then(function(response){
-            console.log(response.data)
+            console.log(response['1'])
             
             navigate('/');
         })
