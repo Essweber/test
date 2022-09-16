@@ -17,7 +17,7 @@ export default function Organisation_Inscription() {
 
         axios.post('http://localhost/test/api-php-natif/api/organisation/create.php', inputs).then(function(response){
             console.log(response.data);
-            navigate('/');
+            navigate('/organisation/list');
         });
         
     }

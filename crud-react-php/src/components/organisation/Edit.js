@@ -14,7 +14,7 @@ export default function Organisation_edit() {
     }, []);
 
     function getUser() {
-        axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php?id=${id}`).then(function(response) {
+        axios.get(`http://localhost/test/api-php-natif/api/organisation/read_single.php?id=${id}`).then(function(response) {
             console.log(response.data);
             setInputs(response.data);
         });
@@ -29,9 +29,9 @@ export default function Organisation_edit() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.put(`http://localhost/test/api-php-natif/api/user/update.php/?id=${id}`, inputs).then(function(response){
+        axios.put(`http://localhost/test/api-php-natif/api/organisation/update.php/?id=${id}`, inputs).then(function(response){
             console.log(response.data);
-            navigate('/');
+            navigate('/organisation/list');
         });
         
     }
@@ -43,55 +43,37 @@ export default function Organisation_edit() {
                     <tbody>
                     <tr>
                             <th>
-                                <label>fname: </label>
+                                <label>name: </label>
                             </th>
                             <td>
-                                <input value={inputs.fname} type="text" name="fname" onChange={handleChange} />
+                                <input value={inputs.name} type="text" name="name" onChange={handleChange} />
                             </td>
                         </tr>
 
                         <tr>
                             <th>
-                                <label>lname: </label>
+                                <label>activites: </label>
                             </th>
                             <td> 
-                                <input value={inputs.lname} type="text" name="lname" onChange={handleChange} />
+                                <input value={inputs.activites} type="text" name="activites" onChange={handleChange} />
                             </td>
                         </tr>
 
                         <tr>
                             <th>
-                                <label>email: </label>
+                                <label>adresse: </label>
                             </th>
                             <td>
-                                <input value={inputs.email} type="text" name="email" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
-                                <label>password: </label>
-                            </th>
-                            <td>
-                                <input value={inputs.password} type="text" name="password" onChange={handleChange} />
+                                <input value={inputs.adresse} type="text" name="adresse" onChange={handleChange} />
                             </td>
                         </tr>
                        
                         <tr>
                             <th>
-                                <label>tel: </label>
+                                <label>crée par: </label>
                             </th>
                             <td>
-                                <input value={inputs.tel} type="text" name="tel" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
-                                <label>type: </label>
-                            </th>
-                            <td>
-                                <input value={inputs.type} type="text" name="type" onChange={handleChange} />
+                                <input value={inputs.creator_id} type="text" name="creator_id" onChange={handleChange} />
                             </td>
                         </tr>
 

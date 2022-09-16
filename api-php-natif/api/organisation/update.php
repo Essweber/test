@@ -6,34 +6,34 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
   include_once '../../config/Database.php';
-  include_once '../../models/Post.php';
+  include_once '../../models/organisation.php';
 
   // Instantiate DB & connect
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog post object
-  $post = new Post($db);
+  // Instantiate blog organisation object
+  $organisation = new organisation($db);
 
-  // Get raw posted data
+  // Get raw organisation data
   $data = json_decode(file_get_contents("php://input"));
 
   // Set ID to update
-  $post->id = $data->id;
+  $organisation->id = $data->id;
 
-  $post->title = $data->title;
-  $post->body = $data->body;
-  $post->author = $data->author;
-  $post->category_id = $data->category_id;
+  $organisation->name = $data->name;
+  $organisation->activites = $data->activites;
+  $organisation->adresse = $data->adresse;
+  $organisation->creator_id = $data->creator_id;
 
-  // Update post
-  if($post->update()) {
+  // Update organisation
+  if($organisation->update()) {
     echo json_encode(
-      array('message' => 'Post Updated')
+      array('message' => 'organisation Updated')
     );
   } else {
     echo json_encode(
-      array('message' => 'Post Not Updated')
+      array('message' => 'organisation Not Updated')
     );
   }
 

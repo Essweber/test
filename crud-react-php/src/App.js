@@ -9,9 +9,9 @@ import Services from './components/Participant';
 import Organisateur from './components/Organisateur';
 import Participant from './components/Participant';
 import Connexion from './components/Connexion';
-import Organisation_Inscription from './components/organisation/Organisation_Inscription';
-import Organisation_list from './components/organisation/Organisation_list';
-import Organisation_edit from './components/organisation/Organisation_edit';
+import Inscription_organisation from './components/organisation/Inscription';
+import List from './components/organisation/List';
+import Edit from './components/organisation/Edit';
 
 
 
@@ -52,9 +52,9 @@ function App() {
       <Route path='user/:id/edit' element={<EditUser />} />
 
       {/* ORGANISATION */}
-      <Route path='/organisation/create' element={<Organisation_Inscription />} />
-      <Route path='/organisation/list' element={<Organisation_list />} />
-      <Route path='/organisation/edit' element={<Organisation_edit />} />
+      <Route path='/organisation/create' element={<Inscription_organisation />} />
+      <Route path='/organisation/list' element={<List />} />
+      <Route path='/organisation/list/:id/edit' element={<Edit />} />
       
     </Routes>
     </BrowserRouter>
