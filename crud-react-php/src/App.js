@@ -1,24 +1,35 @@
 import { useState } from 'react';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import './App.css';
-import Inscription from './components/Inscription';
+
+
+// HOME
 import Home from './components/Home';
-import ListUser from './components/ListUser';
-import EditUser from './components/EditUser';
-import Services from './components/Participant';
-import Organisateur from './components/Organisateur';
-import Participant from './components/Participant';
+import Inscription from './components/Inscription';
 import Connexion from './components/Connexion';
-import Inscription_organisation from './components/organisation/Inscription';
-import List from './components/organisation/List';
-import Edit from './components/organisation/Edit';
+import ParticipantPage from './components/participant/ParticipantPage';
+import OrganisateurPage from './components/organisation/OrganisateurPage';
+
+
+// PARTICIPANT
+import ListUser from './components/participant/ListUser';
+import EditUser from './components/participant/EditUser';
+
+
+
+// ORGANISATION
+import CreateOrganisation from './components/organisation/CreateOrganisation';
+import ListOrganisation from './components/organisation/ListOrganisation';
+import EditOrganisation from './components/organisation/EditOrganisation';
+import DashboardOrganisateur from './components/organisation/OrganisationDashboard';
 
 // Navbar
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+// import Container from 'react-bootstrap/Container';
+// import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 
+// BTN BOOTSTRAP
 import Button from 'react-bootstrap/Button';
 
 
@@ -32,7 +43,7 @@ function App() {
 
     <>
     
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    {/* <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/">EazyEvent</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -50,13 +61,13 @@ function App() {
             </NavDropdown>
           </Nav>
           <Nav>
-          <Button href="user/inscription" variant="primary">Inscription</Button>
-          <Button href="user/Connexion" variant="primary">Connexion</Button>
+          <Button href="inscription" variant="primary">Inscription</Button>
+          <Button href="Connexion" variant="primary">Connexion</Button>
             
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </Navbar> */}
 
     </>
 
@@ -69,17 +80,18 @@ function App() {
     </header>
     <Routes>
       <Route index element={<Home />} />
-      <Route path='user/inscription' element={<Inscription />} />
-      <Route path='user/connexion' element={<Connexion />} />
+      <Route path='inscription' element={<Inscription />} />
+      <Route path='connexion' element={<Connexion />} />
       <Route path='/user' element={<ListUser />} />
-      <Route path='/services/organisateur' element={<Organisateur />} />
-      <Route path='/services/participant' element={<Participant />} />
+      <Route path='/services/organisateur' element={<OrganisateurPage />} />
+      <Route path='/services/organisateur/dashboard' element={<DashboardOrganisateur />} />
+      <Route path='/services/participant' element={<ParticipantPage />} />
       <Route path='user/:id/edit' element={<EditUser />} />
 
       {/* ORGANISATION */}
-      <Route path='/organisation/create' element={<Inscription_organisation />} />
-      <Route path='/organisation/list' element={<List />} />
-      <Route path='/organisation/list/:id/edit' element={<Edit />} />
+      <Route path='/organisation/create' element={<CreateOrganisation />} />
+      <Route path='/organisation/list' element={<ListOrganisation />} />
+      <Route path='/organisation/list/:id/edit' element={<EditOrganisation />} />
       
     </Routes>
     </BrowserRouter>

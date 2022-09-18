@@ -41,43 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
 
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    print_r($data);
-    // echo $data['id'];
+    // print_r($data);
+    // echo $data['fname'];
 
 if ($data) {
     
 
-        $id=$data['id'];
-        $fname=$data['fname'];
-        $lname=$data['lname'];
-        $email=$data['email'];
-        // $password=$data['password'];
-        $tel=$data['tel'];
-        $type=$data['type'];
-        $created_at=$data['created_at'];
-        $updated_at=$data['updated_at'];
-       
-        $payload=[
-            'iss'=>"localhost",
-            'aud'=>"localhost",
-            'audexp'=>time()+1000,
-            'data'=>[
-                'id'=>$id,
-                'fname'=>$fname,
-                'lname'=>$lname,
-                'email'=>$email,
-                // 'password'=>$password,
-                'tel'=>$tel,
-                'type'=>$type,
-                'created_at'=>$created_at,
-                'updated_at'=>$updated_at,
-            ],
-        ];
-        $secret_key="Gilbert Aloua";
-        $jwt=JWT::encode($payload,$secret_key,"HS256");
         echo json_encode([
             'status' => 1,
-            'jwt' => $jwt,
+            'verified_id' => $data['id'],
             'message' => 'Login successfully',
         ]);
     }

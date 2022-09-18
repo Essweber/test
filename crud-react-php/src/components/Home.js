@@ -4,9 +4,19 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import hme_head from "../assets/hme_head.JPG";
+import slide1 from "../assets/images/slide1.jpg";
+import slide2 from "../assets/images/slide2.jpg";
+import slide3 from "../assets/images/slide3.jpg";
 import "../assets/style/home.css";
 import { useNavigate } from "react-router-dom";
+
+
+import Carousel from 'react-bootstrap/Carousel';
+// Navbar
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 // btn
 import Button from 'react-bootstrap/Button';
@@ -31,23 +41,80 @@ export default function Home() {
 const handleSubmit = (event) => {
         event.preventDefault();
 
-        if(1==1){
-            console.log('cool');
-            
-            navigate('/');
-        }else{
-            console.log('sory');
-        }
+       
         };
 
 
 
     return (
         <div>
+              <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="/">EazyEvent</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#features">A propos</Nav.Link>
+            <Nav.Link href="#pricing">Contact</Nav.Link>
+            <NavDropdown title="Services" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/services/organisateur">Organisateur</NavDropdown.Item>
+              <NavDropdown.Item href="/services/participant">Participant</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Autre
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+          <Button href="inscription" variant="primary">Inscription</Button>
+          <Button href="Connexion" variant="primary">Connexion</Button>
+            
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
             <div className="home-header">
 
                 {/* <div></div> */}
-                <div className="welcome-img"><img src={hme_head} alt="" /></div>
+                <div className="welcome-img">
+                      <Carousel>
+      <Carousel.Item interval={1200}>
+        <img
+          className="d-block w-100"
+          src={slide1}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={1200}>
+        <img
+          className="d-block w-100"
+          src={slide2}
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={slide3}
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel></div>
                 <div className="welcome-text"><h1>Nous gérons tout ce qui concerne l'évènementiel</h1></div>
             </div>
             <div className="home-content">

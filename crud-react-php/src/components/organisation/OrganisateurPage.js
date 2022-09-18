@@ -2,12 +2,17 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Organisateur() {
+import Button from 'react-bootstrap/Button';
+
+
+export default function OrganisateurPage() {
 
 
     return (
         <div>
             <h1>Organisateur</h1>
+          <Button href="/organisation/create" variant="primary">Creer un profil</Button>
+
             <h1>En quoi nous pouvons vous aider</h1>
             <p>
                 Vous organisez une conférence, une formation, un concert, un match de foot ou tout autre évènement
@@ -39,7 +44,8 @@ export default function Organisateur() {
                             vous faut. une salle de conférence par
                             exemple.
                         </p>
-                        <button>Demander un devis</button>
+          <Button href="user/inscription" variant="primary">Demander un devis</Button>
+
                     </div>
                 </div>
             </section>

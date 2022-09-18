@@ -1,21 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export default function Organisation_Inscription() {
+export default function Organisation_edit() {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
 
+    const {id} = useParams();
+
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    function getUser() {
+        axios.get(`http://localhost/test/api-php-natif/api/organisation/read_single.php?id=${id}`).then(function(response) {
+            console.log(response.data);
+            setInputs(response.data);
+        });
+    }
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
+        // console.log(value);
         setInputs(values => ({...values, [name]: value}));
     }
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/organisation/create.php', inputs).then(function(response){
+        axios.put(`http://localhost/test/api-php-natif/api/organisation/update.php/?id=${id}`, inputs).then(function(response){
             console.log(response.data);
             navigate('/organisation/list');
         });
@@ -23,25 +37,25 @@ export default function Organisation_Inscription() {
     }
     return (
         <div>
-            <h1>créez votre organisation</h1>
+            <h1>Edit user</h1>
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>
-                        <tr>
+                    <tr>
                             <th>
-                                <label>nom: </label>
+                                <label>name: </label>
                             </th>
                             <td>
-                                <input type="text" name="name" onChange={handleChange} />
+                                <input value={inputs.name} type="text" name="name" onChange={handleChange} />
                             </td>
                         </tr>
 
                         <tr>
                             <th>
-                                <label>secteur d'activités: </label>
+                                <label>activites: </label>
                             </th>
                             <td> 
-                                <input type="text" name="activites" onChange={handleChange} />
+                                <input value={inputs.activites} type="text" name="activites" onChange={handleChange} />
                             </td>
                         </tr>
 
@@ -50,19 +64,18 @@ export default function Organisation_Inscription() {
                                 <label>adresse: </label>
                             </th>
                             <td>
-                                <input type="text" name="adresse" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
-                                <label>créé par: </label>
-                            </th>
-                            <td>
-                                <input type="text" name="creator_id" onChange={handleChange} />
+                                <input value={inputs.adresse} type="text" name="adresse" onChange={handleChange} />
                             </td>
                         </tr>
                        
+                        <tr>
+                            <th>
+                                <label>crée par: </label>
+                            </th>
+                            <td>
+                                <input value={inputs.creator_id} type="text" name="creator_id" onChange={handleChange} />
+                            </td>
+                        </tr>
 
                         <tr>
                             <td colSpan="2" align ="right">

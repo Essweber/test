@@ -1,6 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import SetCookie from "./cookie/SetCookie";
+import RemoveCookie from "./cookie/RemoveCookie";
+import jwt_decode from "jwt-decode";
+import GetCookie from "./cookie/GetCookie";
 
 export default function Connexion() {
     const navigate = useNavigate();
@@ -15,11 +19,41 @@ export default function Connexion() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
+        // axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
+        axios.post('http://localhost/test/api-php-natif/api/user/auth.php', inputs)
         .then(function(response){
-            console.log(response['1'])
+            const data = response.data;
+            if (data.jwt) {
+                const jeton = data.jwt;
+
+                RemoveCookie('logged');
+                SetCookie('logged', jeton);
+                if(data.type==1){
+console.log("Admin / admin");
+
+const user = GetCookie('logged');
+console.log(user);
+// let decoded = jwt_decode.decode(user);
+//  console.log(decoded);
+navigate('/services/organisateur/dashboard');
+                }
+                if(data.type==2){
+console.log("Admin / admin");
+
+const user = GetCookie('logged');
+console.log(user);
+// let decoded = jwt_decode.decode(user);
+//  console.log(decoded);
+navigate('/services/participant');
+                }
+                
+            }else{
+                
+                console.log("client");
+                // alert( 'sorry !!!')
+            }
             
-            navigate('/');
+            
         })
         .catch(error => console.log(error));
         
@@ -28,6 +62,8 @@ export default function Connexion() {
     return (
         <div>
             <h1>Connexion</h1>
+            {/* <h1>{data.jwt}</h1> */}
+            
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Organisation_connexion() {
+export default function Inscription() {
     const navigate = useNavigate();
 
     const [inputs, setInputs] = useState([]);
