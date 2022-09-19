@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SetCookie from "./cookie/SetCookie";
 import RemoveCookie from "./cookie/RemoveCookie";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 import GetCookie from "./cookie/GetCookie";
 
 export default function Connexion() {
@@ -24,15 +24,14 @@ export default function Connexion() {
         .then(function(response){
             const data = response.data;
             if (data.jwt) {
-                const jeton = data.jwt;
 
                 RemoveCookie('logged');
-                SetCookie('logged', jeton);
+                SetCookie('logged', data.jwt);
+                SetCookie('id', data.id);
                 if(data.type==1){
 console.log("Admin / admin");
 
-const user = GetCookie('logged');
-console.log(user);
+
 // let decoded = jwt_decode.decode(user);
 //  console.log(decoded);
 navigate('/services/organisateur/dashboard');
@@ -45,6 +44,7 @@ console.log(user);
 // let decoded = jwt_decode.decode(user);
 //  console.log(decoded);
 navigate('/services/participant');
+navigate('connexion');
                 }
                 
             }else{

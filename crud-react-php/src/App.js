@@ -22,6 +22,18 @@ import CreateOrganisation from './components/organisation/CreateOrganisation';
 import ListOrganisation from './components/organisation/ListOrganisation';
 import EditOrganisation from './components/organisation/EditOrganisation';
 import DashboardOrganisateur from './components/organisation/OrganisationDashboard';
+import OrganisationTotalDashboard from './components/organisation/OrganisationTotalDashboard';
+
+
+// EVENTS
+import CreateEvent from './components/organisation/event/CreateEvent';
+import EditEvent from './components/organisation/event/EditEvent';
+import EventPage from './components/organisation/event/EventPage';
+import ListEvent from './components/organisation/event/ListEvent';
+
+
+// DEMANDES
+import Demande from './components/organisation/event/Demande';
 
 // Navbar
 // import Container from 'react-bootstrap/Container';
@@ -41,39 +53,7 @@ function App() {
     <div className="App">
 
 
-    <>
-    
-    {/* <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="/">EazyEvent</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">A propos</Nav.Link>
-            <Nav.Link href="#pricing">Contact</Nav.Link>
-            <NavDropdown title="Services" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/services/organisateur">Organisateur</NavDropdown.Item>
-              <NavDropdown.Item href="/services/participant">Participant</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Autre
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-          <Button href="inscription" variant="primary">Inscription</Button>
-          <Button href="Connexion" variant="primary">Connexion</Button>
-            
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar> */}
-
-    </>
-
-
-
-    <BrowserRouter>
+      <BrowserRouter>
     <header className='App-header'>
     <div className=""></div>
  
@@ -84,14 +64,20 @@ function App() {
       <Route path='connexion' element={<Connexion />} />
       <Route path='/user' element={<ListUser />} />
       <Route path='/services/organisateur' element={<OrganisateurPage />} />
-      <Route path='/services/organisateur/dashboard' element={<DashboardOrganisateur />} />
+      <Route path='/services/organisateur/dashboard' element={<DashboardOrganisateur />} />      
       <Route path='/services/participant' element={<ParticipantPage />} />
       <Route path='user/:id/edit' element={<EditUser />} />
 
       {/* ORGANISATION */}
       <Route path='/organisation/create' element={<CreateOrganisation />} />
       <Route path='/organisation/list' element={<ListOrganisation />} />
-      <Route path='/organisation/list/:id/edit' element={<EditOrganisation />} />
+      <Route path='/organisation/:id/edit' element={<EditOrganisation />} />
+      <Route path='/services/organisateur/dashboard/total' element={<OrganisationTotalDashboard />} />
+
+      {/* EVENTS */}
+      <Route path='/event/create' element={<CreateEvent />} />
+      <Route path='/event/edit' element={<EditEvent />} />
+      <Route path='/event/:id/demande' element={<Demande />} />
       
     </Routes>
     </BrowserRouter>

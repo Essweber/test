@@ -78,6 +78,7 @@ if ($data) {
         $jwt=JWT::encode($payload,$secret_key,"HS256");
         echo json_encode([
             'status' => 1,
+            'id' => $id,
             'type'=>$type,
             'jwt' => $jwt,
             'message' => 'Login successfully',

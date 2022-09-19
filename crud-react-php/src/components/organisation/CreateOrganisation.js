@@ -25,52 +25,28 @@ export default function CreateOrganisation() {
         <div>
             <h1>créez votre organisation</h1>
             <form onSubmit={handleSubmit}>
-                <table cellSpacing="10">
-                    <tbody>
-                        <tr>
-                            <th>
+                
                                 <label>nom: </label>
-                            </th>
-                            <td>
+                           
                                 <input type="text" name="name" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
+                         
                                 <label>secteur d'activités: </label>
-                            </th>
-                            <td> 
+                          
                                 <input type="text" name="activites" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
+                        
                                 <label>adresse: </label>
-                            </th>
-                            <td>
+                          
                                 <input type="text" name="adresse" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
+                           
                                 <label>créé par: </label>
-                            </th>
-                            <td>
+                          
                                 <input type="text" name="creator_id" onChange={handleChange} />
-                            </td>
-                        </tr>
+                           
                        
 
-                        <tr>
-                            <td colSpan="2" align ="right">
+                     
                                 <button>Save</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                      
             </form>
         </div>
     )
