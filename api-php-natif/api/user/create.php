@@ -32,6 +32,8 @@
     echo json_encode(
       array('message' => 'user Created')
     );
+
+    
   } else {echo "sorry";
     echo json_encode(
       array('message' => 'user Not Created')

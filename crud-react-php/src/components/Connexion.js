@@ -14,60 +14,74 @@ export default function Connexion() {
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setInputs(values => ({...values, [name]: value}));
+        setInputs(values => ({ ...values, [name]: value }));
     }
     const handleSubmit = (event) => {
         event.preventDefault();
 
         axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
-        // axios.post('http://localhost/test/api-php-natif/jwt-auth', inputs)
-        .then(function(response){
-            const data = response.data;
-            if (data.jwt) {
-
-                RemoveCookie('logged');
-                SetCookie('logged', data.jwt);
-                SetCookie('id', data.id);
-                if(data.type==1){
-console.log("Admin / admin");
+            // axios.post('http://localhost/test/api-php-natif/jwt-auth', inputs)
+            .then(function (response) {
+                let data = response.data;
+                if (data) {
 
 
-// let decoded = jwt_decode.decode(user);
-//  console.log(decoded);
-navigate('/services/organisateur/dashboard');
+                    RemoveCookie('logged');
+
+
+                    switch (data.type) {
+                        case 1:
+                            console.log("Admin / admin");
+                            console.log(data.type);
+                            data = JSON.stringify(data)
+                            SetCookie('logged', data);
+
+                            navigate('/services/organisateur/dashboard');
+                            break;
+                        case 2:
+                            console.log("client / participant");
+                            console.log(data.type);
+                            data = JSON.stringify(data)
+                            SetCookie('logged', data);
+
+                            navigate('/services/participant');
+                            break;
+
+                        default:
+                            navigate('./');
+                            break;
+
+                    }
+                    //     
+
+                    //     const user = GetCookie('logged');
+                    //     console.log(user);
+                    //     // let decoded = jwt_decode.decode(user);
+                    //     //  console.log(decoded);
+                    //     navigate('/services/participant');
+                    //     
+
+                } else {
+
+                    console.log("client");
+                    // alert( 'sorry !!!')
                 }
-                if(data.type==2){
-console.log("Admin / admin");
 
-const user = GetCookie('logged');
-console.log(user);
-// let decoded = jwt_decode.decode(user);
-//  console.log(decoded);
-navigate('/services/participant');
-navigate('connexion');
-                }
-                
-            }else{
-                
-                console.log("client");
-                // alert( 'sorry !!!')
-            }
-            
-            
-        })
-        .catch(error => console.log(error));
-        
+
+            })
+            .catch(error => console.log(error));
+
     }
-                
+
     return (
         <div>
             <h1>Connexion</h1>
             {/* <h1>{data.jwt}</h1> */}
-            
+
             <form onSubmit={handleSubmit}>
                 <table cellSpacing="10">
                     <tbody>
-                       
+
                         <tr>
                             <th>
                                 <label>email: </label>
@@ -85,11 +99,11 @@ navigate('connexion');
                                 <input type="text" name="password" onChange={handleChange} />
                             </td>
                         </tr>
-                       
-                       
+
+
 
                         <tr>
-                            <td colSpan="2" align ="right">
+                            <td colSpan="2" align="right">
                                 <button>Save</button>
                             </td>
                         </tr>

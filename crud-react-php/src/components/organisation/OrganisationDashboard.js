@@ -22,11 +22,20 @@ import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(faUser, faEnvelope, faLock);
 
-let id;
-if (GetCookie('id')) {
-  id = GetCookie('id');
-  if (id != 2) {
+
+export default function OrganisationDashbord() {
+
+
+  const navigate = useNavigate();
+  let id;
+let user;
+if (GetCookie('logged')) {
+  user = JSON.parse(GetCookie('logged'));
+
+  console.log(user.email);
+  if (user.type != 1) {
     console.log('sorry you are not ...');
+    navigate('/');
   } else {
     console.log('welcome');
 
@@ -34,9 +43,7 @@ if (GetCookie('id')) {
 }
 
 
-export default function OrganisationDashbord() {
 
-  const navigate = useNavigate();
   const [organisation, setOrganisation] = useState([]);
   useEffect(() => {
     getOrganisation();
