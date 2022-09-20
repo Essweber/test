@@ -1,0 +1,52 @@
+npm install --save expo-jwt
+
+
+***********ENCODE
+import JWT from 'expo-jwt';
+
+const key = 'shh';
+
+JWT.encode({ foo: 'bar' }, key);
+// => eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIifQ.YVoZ0LkWCMCnwEf7Nju2SJt_9mseJP1Q3RvCz4frGwM
+
+JWT.encode({ foo: 'bar' }, key, { algorithm: 'HS512' });
+// => eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIifQ.Kyojwz8Z5SckLbMU-EImuzHEjjg_1apSOLz_tsZQj1025OH--qaORzkHUkScScd8-RZnWUdCu0epiaofQZNkBA
+
+JWT.encode({ foo: 'bar' }, key, { algorithm: 'none' });
+// => eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJmb28iOiJiYXIifQ.
+
+
+
+
+
+****************************DECODE
+import JWT from 'expo-jwt';
+
+const key = 'shh';
+const token =
+  'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIifQ.Kyojwz8Z5SckLbMU-EImuzHEjjg_1apSOLz_tsZQj1025OH--qaORzkHUkScScd8-RZnWUdCu0epiaofQZNkBA';
+
+JWT.decode(token, key);
+// => { foo: 'bar' }
+
+
+
+
+
+*********
+// Issuer - iss
+JWT.decode(token, key, { iss: 'expected-issuer' });
+
+// Subject - sub
+JWT.decode(token, key, { sub: 'expected-subject' });
+
+// Audience - aud
+JWT.decode(token, key, { aud: 'expected-audience' });
+
+
+
+
+***********
+// Allow verification of tokens that include "exp", "nbf", or "iat" claims
+// within an additional 30 seconds of the system time.
+JWT.decode(token, key, { timeSkew: 30 });

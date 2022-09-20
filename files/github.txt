@@ -1,0 +1,10 @@
+https://github.com/Essweber/test.git/
+
+
+cd C:\MAMP\htdocs\test\crud-react-php
+
+npm start
+
+cd C:\MAMP\htdocs\test
+
+git push origin master
