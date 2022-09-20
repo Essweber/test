@@ -19,8 +19,8 @@ export default function Connexion() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
-        axios.post('http://localhost/test/api-php-natif/api/user/auth.php', inputs)
+        axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
+        // axios.post('http://localhost/test/api-php-natif/jwt-auth', inputs)
         .then(function(response){
             const data = response.data;
             if (data.jwt) {

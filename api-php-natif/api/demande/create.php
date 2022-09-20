@@ -18,8 +18,12 @@
   // Get raw demande data
   $data = json_decode(file_get_contents("php://input"));
   
+  if(isset($_GET['event_id'])){
+    $demande->event_id = $_GET['event_id'];
+    var_dump($demande->event_id);
+  }
   
-  $demande->event_id = $data->event;
+  
   $demande->location_region = $data->location_region;
 
   $demande->location_prefecture = $data->location_prefecture;

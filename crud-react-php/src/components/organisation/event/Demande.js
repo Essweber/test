@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 export default function Demande() {
     const navigate = useNavigate();
     const {event_id} = useParams();
-    const event = 1;
+    const even = 1;
     const [inputs, setInputs] = useState([]);
 let check_location;
     const handleChange = (event) => {
@@ -17,8 +17,8 @@ let check_location;
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-console.log(inputs);
-         axios.post(`http://localhost/test/api-php-natif/api/demande/create.php?event_id=${event}`, inputs).then(function (response) {
+console.log(even);
+         axios.post(`http://localhost/test/api-php-natif/api/demande/create.php?event_id=${even}`, inputs).then(function (response) {
             console.log(response.data);
             // navigate('/organisation/list');
         });
