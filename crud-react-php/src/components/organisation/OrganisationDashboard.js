@@ -20,6 +20,21 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons';
+// import the library
+// import { library } from '@fortawesome/fontawesome-svg-core';
+
+// import your icons
+// import { faMoneyBill } from '@fortawesome/pro-solid-svg-icons';
+import { faCode, faHighlighter,fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+  fab,
+  fas,
+  faCode,
+  faHighlighter
+  // more icons go here
+);
 library.add(faUser, faEnvelope, faLock);
 
 
@@ -80,7 +95,7 @@ if (GetCookie('logged')) {
         <div className="organisator-infos-container">
           <section className="organisator-section1">
             <div className="organisator-section1-icon">
-              <FontAwesomeIcon icon="fa-solid fa-user" />
+            <FontAwesomeIcon icon="fa-solid fa-address-book" />
             </div>
             <div className="organisator-section1-infos">
 
@@ -96,14 +111,14 @@ if (GetCookie('logged')) {
             </div>
           </section>
 
-
+          <FontAwesomeIcon icon="fa-solid fa-calendar-days" />
 
           <section className="section2">
             <div className="section2-card">
-
+          
               <div className="section2-card-top">
                 <div className="section2-card-icon">
-                  <FontAwesomeIcon icon="fa-solid fa-user" />
+                  <FontAwesomeIcon icon="fa-solid fa-calendar-clock" />
                 </div>
 
                 <div className="section2-card-title">
@@ -128,7 +143,7 @@ if (GetCookie('logged')) {
                 </div>
 
                 <div className="section2-card-title">
-                  Evènements
+                  Tickets vendus
                 </div>
 
                 <div className="section2-card-nbr">
@@ -137,7 +152,7 @@ if (GetCookie('logged')) {
               </div>
 
               <div className="section2-card-txt">
-                <div>Vous pouvez créer un évènement</div>
+                <div>Vous pouvez Ajouter des tickets</div>
                 <Button href="/services/participant" variant="primary">voir plus</Button>
               </div>
             </div>

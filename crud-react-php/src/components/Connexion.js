@@ -5,6 +5,12 @@ import SetCookie from "./cookie/SetCookie";
 import RemoveCookie from "./cookie/RemoveCookie";
 // import jwt_decode from "jwt-decode";
 import GetCookie from "./cookie/GetCookie";
+import "../assets/style/connexion.css";
+import Container from 'react-bootstrap/Container';
+// btn
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
 
 export default function Connexion() {
     const navigate = useNavigate();
@@ -17,6 +23,7 @@ export default function Connexion() {
         setInputs(values => ({ ...values, [name]: value }));
     }
     const handleSubmit = (event) => {
+        console.log('submit');
         event.preventDefault();
 
         axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
@@ -75,41 +82,37 @@ export default function Connexion() {
 
     return (
         <div>
-            <h1>Connexion</h1>
-            {/* <h1>{data.jwt}</h1> */}
 
-            <form onSubmit={handleSubmit}>
-                <table cellSpacing="10">
-                    <tbody>
 
-                        <tr>
-                            <th>
+            <Container>
+                <div className="connexion-form-container">
+                    <div className="connexion-form">
+                        <h1 className="form-title">Connexion</h1>
+                        <form onSubmit={handleSubmit}>
+
+                            <div className="full">
+
+                            </div>
+                            <div className="full">
                                 <label>email: </label>
-                            </th>
-                            <td>
+                            </div>
+                            <div className="full">
                                 <input type="text" name="email" onChange={handleChange} />
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th>
+                            </div>
+                            <div className="full">
                                 <label>password: </label>
-                            </th>
-                            <td>
+                            </div>
+                            <div className="full">
                                 <input type="text" name="password" onChange={handleChange} />
-                            </td>
-                        </tr>
+                            </div>
+                            <div className="form-btn-div">
+                                <Button type="submit" className="form-btn">Envoyer</Button>
+                            </div>
 
-
-
-                        <tr>
-                            <td colSpan="2" align="right">
-                                <button>Save</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+                        </form>
+                    </div>
+                </div>
+            </Container>
         </div>
     )
 }

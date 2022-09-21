@@ -2,6 +2,7 @@
 body, html{
     margin: 0px;
     padding: 0px;
+    background-color: var(--cendre) ;
 }
 /* variable */
 :root {
@@ -15,8 +16,16 @@ body, html{
 img{
     width: 100%;
 }
-.home-header{
-   
+.slider{
+    height: 100vh;
+}
+.carousel-item{
+   height: 100vh;
+   /* overflow: hidden; */
+}
+.carousel-caption{
+   height: 100%;
+color: transparent;
 }
 .welcome-text{
     /* width: 100%; */
@@ -39,19 +48,25 @@ img{
     color: white;
     font-size: 3rem;
     font-weight: bold;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
 
 }
 .home-content{
-    
+    max-width: 1000px;
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: auto;
 }
+
 .form-container{
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    max-width: 1000px;
+    height: 70vh;
+    margin: auto;
 }
 .welcome-img{
     position: relative;
@@ -59,42 +74,79 @@ img{
     overflow: hidden;
 }
 .d-block{
-    
+    height: 100vh;
 }
 .contact-form{
-    
+    width: 100%;
+    max-width: 1000px;
     display: flex;
+    justify-content: space-between;
     margin: auto;
+    
 }
 .inputs{
+    width: 47%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+   
 }
+.contact-input{
+height: 50px;
+border:1px solid rgba(71, 71, 71, 0.308);
+padding: 10px;
+}
+.contact-texterea{
+    width: 47%;
 
+}
+.contact-msg{
+    padding: 10px;
+    width: 100%;
+    border:1px solid rgba(71, 71, 71, 0.308);
+}
+.contact-btn{
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+}
+.contact-btn:hover{
+    background-color: #0a53be;
+    color: var(--white);
+    cursor: pointer;
+}
+.form-title{
+   text-align: left;
+   font-weight: bold;
+   color: var(--blue);
+   margin-bottom: 30px;
+   
+}
 .home_nav{
   
       background-color: var(--blue);
-    /* height: 70px; */
+    height: 70px;
     z-index: 100;
     color: white;
 
 }
 .home_nav_logo{
-    /* background-color: #afbbd9;
-    color: var(--blue); */
+     background-color: #afbbd9;
+   color: var(--blue);
     font-weight: bold;
-    /* height: 100%; */
-    width: 200px;
-    /* display: flex;
+    height: 100%;
+  width: 200px;
+    position: absolute;
+    display: flex;
     justify-content: center;
     align-items: center;
-     */
+    
 }
 
 #responsive-navbar-nav{
     background-color: #406cdc;
-    /* height: 70px; */
+    justify-content: space-between;
 }
 
 /* liens */
@@ -118,26 +170,79 @@ img{
     border: 1px solid  var(--white);
 } */
 .btn-transparent{
-    background-color: transparent;
+    background-color: var(--blue);
     
     border: 1px solid  var(--white);
-    margin-right: 25px;
+    margin: 15px;
     width: 120px;
 }
 .btn-white{
     background-color: var(--white);
     color: var(--blue);
     border: 1px solid  var(--white);
-    margin-right: 25px;
+    margin-right: 35px;
     width: 120px;
 }
-
+.home-card{
+    width: 35%;
+    min-width: 20rem;
+    height: 350px;
+    padding: 20px;
+    
+    
+    }
+    .home-logo{
+        width: 50px;
+    }
+    .card-body{
+        display: flex;
+        flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+    .card-title{
+        margin-bottom: 15px;
+    }
+    .card-text{
+        height: 65%;
+        display: flex;
+    align-items: center;
+    }
+    .card-btn{
+    margin: 0px;
+    }
 .me-auto{
     margin: auto;
 }
 
 .navbar-toggler{
+    position: absolute;
     width: 50px;
     height: 40px;
     margin-right: 25px;
+    right: 20px;
+}
+
+/* FOOTER */
+
+.footer-container{
+    width: 100%;
+    background-color: var(--blue);
+    color: var(--cendre);
+}
+.footer-content{
+display: flex;
+justify-content: space-between;
+}
+.footer-column{
+width: 30%;
+text-align: left;
+}
+.footer-column h3{
+margin-top: 35px;
+font-weight: bold;
+}
+.logopaypal{
+    width: 100px;
+    margin: 20px 0px;
 }
