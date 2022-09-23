@@ -14,7 +14,16 @@
   $organisation = new organisation($db);
 
   // Get ID
-  $organisation->id = isset($_GET['id']) ? $_GET['id'] : die();
+  // category_id = isset($_GET['user_id']) ? $_GET['user_id'] : die();
+if(isset($_GET['user_id'])){
+  $organisation->creator_id = $_GET['user_id'];
+  $organisation->used = "user";
+}
+if(isset($_GET['id'])){
+  $organisation->id = $_GET['id'];
+  $organisation->used = "organisation";
+}
+  // $organisation->creator_id = isset($_GET['user_id']) ? $_GET['user_id'] : die();
 
   // Get organisation
   $organisation->read_single();
@@ -27,7 +36,10 @@
     'adresse' => $organisation->adresse,
     'creator_id' => $organisation->creator_id,
     'created_at' => $organisation->created_at,
-    'updated_at' => $organisation->updated_at
+    'creator_fname' => $organisation->creator_fname,
+    'creator_lname' => $organisation->creator_lname,
+    'creator_email' => $organisation->creator_email,
+    'creator_tel' => $organisation->creator_tel
   );
 
   // Make JSON

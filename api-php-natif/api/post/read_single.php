@@ -14,7 +14,7 @@
   $post = new Post($db);
 
   // Get ID
-  $post->id = isset($_GET['id']) ? $_GET['id'] : die();
+  $post->category_id = isset($_GET['user_id']) ? $_GET['user_id'] : die();
 
   // Get post
   $post->read_single();
@@ -26,7 +26,6 @@
     'body' => $post->body,
     'author' => $post->author,
     'category_id' => $post->category_id,
-    'category_name' => $post->category_name
   );
 
   // Make JSON

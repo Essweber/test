@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SetCookie from "./cookie/SetCookie";
 import RemoveCookie from "./cookie/RemoveCookie";
+import {Link} from 'react-router-dom';
+
 // import jwt_decode from "jwt-decode";
 import GetCookie from "./cookie/GetCookie";
 import Container from 'react-bootstrap/Container';
@@ -33,49 +35,49 @@ export default function Inscription() {
                     // axios.post('http://localhost/test/api-php-natif/jwt-auth', inputs)
                     .then(function (response) {
                         let data = response.data;
-                        if (data) {
-
-
+                        let note;
+                        let noteLocation = document.getElementById('note');
+                      
+                       
+                        if (data && data.status === 1) {
+        
+        
                             RemoveCookie('logged');
-
-
+        
+        
                             switch (data.type) {
                                 case 1:
                                     console.log("Admin / admin");
                                     console.log(data.type);
                                     data = JSON.stringify(data)
                                     SetCookie('logged', data);
-
-                                    navigate('/services/organisateur/dashboard');
+        
+                                    navigate('/organisation/2/create');
                                     break;
                                 case 2:
                                     console.log("client / participant");
                                     console.log(data.type);
                                     data = JSON.stringify(data)
                                     SetCookie('logged', data);
-
+        
                                     navigate('/services/participant');
                                     break;
-
+        
                                 default:
+                                    note = "Nous ne savons si vous ête organisateur ou participant";
                                     navigate('./');
                                     break;
-
+        
                             }
-                            //     
-
-                            //     const user = GetCookie('logged');
-                            //     console.log(user);
-                            //     // let decoded = jwt_decode.decode(user);
-                            //     //  console.log(decoded);
-                            //     navigate('/services/participant');
-                            //     
-
+                          
                         } else {
-
-                            console.log("client");
-                            // alert( 'sorry !!!')
+        
+                            note = "Vérifiez vos informations et réessayez";
                         }
+        
+                        if(note){
+                            noteLocation.innerHTML=note;
+                      }
 
 
                     })
@@ -148,8 +150,11 @@ export default function Inscription() {
                         </select>
                     </div>
                     <div className="form-btn-div">
-                        <Button className="form-btn">Enregistrer</Button>
+                        <Button type="submit" className="form-btn">Enregistrer</Button>
                     </div>
+                    <div className="form-btn-div">
+                           si vous avez déjà un compte, <Link to='/connexion'>connectez vous ici</Link>
+                            </div>
 
                 </form>
 

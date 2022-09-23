@@ -70,6 +70,7 @@ function App() {
 
       {/* ORGANISATION */}
       <Route path='/organisation/create' element={<CreateOrganisation />} />
+      <Route path='/organisation/:id/create' element={<CreateOrganisation />} />
       <Route path='/organisation/list' element={<ListOrganisation />} />
       <Route path='/organisation/:id/edit' element={<EditOrganisation />} />
       <Route path='/services/organisateur/dashboard/total' element={<OrganisationTotalDashboard />} />

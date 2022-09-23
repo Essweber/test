@@ -1,0 +1,55 @@
+
+body, html{
+    margin: 0px;
+    padding: 0px;
+    background-color: var(--cendre) ;
+}
+/* variable */
+:root {
+    --blue: #406cdc;
+    --white: #ffffff;
+    --cendre: #e2e2e2;
+    --noir_maron: #242323;
+    --noir: #000000;
+  }
+.navbar-text{
+    display: flex;
+    align-items: center;
+}
+
+.navbarr-infos{
+text-align: right;
+}
+
+.navbarr-infos-organisation{
+    text-align: right;
+}
+
+.navbarr-infos-user{
+    text-align: right;
+}
+
+.navbarr-icon{
+font-size: 3rem;
+margin-right: 30px;
+}
+
+.organisator-infos-container{
+   border: 1px solid red;
+}
+.organisator-section1{
+   border: 1px solid green;
+   display: flex;
+   align-items: center;
+}
+.organisator-section1-icon{
+font-size: 20rem;
+}
+.bgc{
+    height: 40px;
+    width: 95%;
+    background-color: aliceblue;
+}
+.no-bgc{
+    height: 40px;
+}

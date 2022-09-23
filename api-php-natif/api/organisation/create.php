@@ -18,6 +18,7 @@
   // Get raw organisation data
   $data = json_decode(file_get_contents("php://input"));
 var_dump($data);
+  $data->creator_id = $_GET['creator_id'];
   $organisation->name = $data->name;
   $organisation->activites = $data->activites;
   $organisation->adresse = $data->adresse;

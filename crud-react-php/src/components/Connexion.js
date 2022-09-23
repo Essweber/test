@@ -10,7 +10,7 @@ import Container from 'react-bootstrap/Container';
 // btn
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import {Link} from 'react-router-dom';
 
 export default function Connexion() {
     const navigate = useNavigate();
@@ -30,7 +30,11 @@ export default function Connexion() {
             // axios.post('http://localhost/test/api-php-natif/jwt-auth', inputs)
             .then(function (response) {
                 let data = response.data;
-                if (data) {
+                let note;
+                let noteLocation = document.getElementById('note');
+              
+               
+                if (data && data.status === 1) {
 
 
                     RemoveCookie('logged');
@@ -55,24 +59,20 @@ export default function Connexion() {
                             break;
 
                         default:
+                            note = "Nous ne savons si vous ête organisateur ou participant";
                             navigate('./');
                             break;
 
                     }
-                    //     
-
-                    //     const user = GetCookie('logged');
-                    //     console.log(user);
-                    //     // let decoded = jwt_decode.decode(user);
-                    //     //  console.log(decoded);
-                    //     navigate('/services/participant');
-                    //     
-
+                  
                 } else {
 
-                    console.log("client");
-                    // alert( 'sorry !!!')
+                    note = "Vérifiez vos informations et réessayez";
                 }
+
+                if(note){
+                    noteLocation.innerHTML=note;
+              }
 
 
             })
@@ -108,6 +108,13 @@ export default function Connexion() {
                             <div className="form-btn-div">
                                 <Button type="submit" className="form-btn">Envoyer</Button>
                             </div>
+                            <div id="note">
+                           
+                            </div>
+                            <div className="form-btn-div">
+                           si vous n'avez pas de compte, <Link to='/inscription'>inscrivez vous ici</Link>
+                            </div>
+                           
 
                         </form>
                     </div>

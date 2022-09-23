@@ -6,10 +6,15 @@
 
     // organisation Properties
     public $id;
+    public $used;
     public $name;
     public $activites;
     public $adresse;
     public $creator_id;
+    public $creator_fname;
+    public $creator_lname;
+    public $creator_email;
+    public $creator_tel;
     public $created_at;
     public $updated_at;
 
@@ -34,26 +39,46 @@
     // Get Single organisation
     public function read_single() {
           // Create query
-          $query = 'SELECT * FROM ' . $this->table . ' WHERE
+          if($this->used === "organisation"){
+             $query = 'SELECT users.fname, users.lname, users.email, creator_id, users.tel, organisations.id, organisations.name, organisations.activites, organisations.adresse FROM ' . $this->table . ' JOIN `users` ON (organisations.creator_id = users.id) WHERE
           ' . $this->table . '.id = ?
                                     LIMIT 0,1';
 
-          // Prepare statement
+                                    $stmt = $this->conn->prepare($query);
+
+                                    // Bind ID
+                                    $stmt->bindParam(1, $this->id);
+          }
+          if($this->used === "user"){
+
+ $query = 'SELECT users.fname, users.lname, users.email, creator_id, users.tel, organisations.id, organisations.name, organisations.activites, organisations.adresse FROM ' . $this->table . ' JOIN `users` ON (organisations.creator_id = users.id) WHERE
+          ' . $this->table . '.creator_id = ?
+                                    LIMIT 0,1';
+                                    
+                                    // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Bind ID
-          $stmt->bindParam(1, $this->id);
+          $stmt->bindParam(1, $this->creator_id);
+          }
+         
 
+         
           // Execute query
           $stmt->execute();
 
           $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
           // Set properties
+          $this->id = $row['id'];
           $this->name = $row['name'];
           $this->activites = $row['activites'];
           $this->adresse = $row['adresse'];
           $this->creator_id = $row['creator_id'];
+          $this->creator_fname = $row['fname'];
+          $this->creator_lname = $row['lname'];
+          $this->creator_email = $row['email'];
+          $this->creator_tel = $row['tel'];
     }
 
     // Create organisation

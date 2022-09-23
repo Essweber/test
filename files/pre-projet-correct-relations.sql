@@ -2,10 +2,10 @@
 -- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : mar. 20 sep. 2022 à 14:48
--- Version du serveur : 5.7.24
--- Version de PHP : 8.1.0
+-- Host: localhost:3306
+-- Generation Time: Sep 22, 2022 at 02:37 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `pre-projet`
+-- Database: `pre-projet`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `actors`
+-- Table structure for table `actors`
 --
 
 CREATE TABLE `actors` (
@@ -40,7 +40,7 @@ CREATE TABLE `actors` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -53,7 +53,7 @@ CREATE TABLE `categories` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `demandes`
+-- Table structure for table `demandes`
 --
 
 CREATE TABLE `demandes` (
@@ -78,7 +78,7 @@ CREATE TABLE `demandes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `demandes`
+-- Dumping data for table `demandes`
 --
 
 INSERT INTO `demandes` (`id`, `location_region`, `location_prefecture`, `place_nbre`, `duration`, `location_description`, `actor_title`, `actor_description`, `gust_name`, `gust_adresse`, `gust_contact`, `materiel_type`, `materiel_name`, `materiel_description`, `other_description`, `created_at`, `updated_at`, `event_id`) VALUES
@@ -94,7 +94,7 @@ INSERT INTO `demandes` (`id`, `location_region`, `location_prefecture`, `place_n
 -- --------------------------------------------------------
 
 --
--- Structure de la table `displacements`
+-- Table structure for table `displacements`
 --
 
 CREATE TABLE `displacements` (
@@ -110,7 +110,7 @@ CREATE TABLE `displacements` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `events`
+-- Table structure for table `events`
 --
 
 CREATE TABLE `events` (
@@ -131,7 +131,7 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `events`
+-- Dumping data for table `events`
 --
 
 INSERT INTO `events` (`id`, `name`, `type`, `start_date`, `start_houre`, `end_date`, `end_houre`, `location`, `description`, `nature`, `created_at`, `updated_at`, `creator_id`, `organisation_id`) VALUES
@@ -143,7 +143,7 @@ INSERT INTO `events` (`id`, `name`, `type`, `start_date`, `start_houre`, `end_da
 -- --------------------------------------------------------
 
 --
--- Structure de la table `location`
+-- Table structure for table `location`
 --
 
 CREATE TABLE `location` (
@@ -160,7 +160,7 @@ CREATE TABLE `location` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `materiaux`
+-- Table structure for table `materiaux`
 --
 
 CREATE TABLE `materiaux` (
@@ -176,7 +176,7 @@ CREATE TABLE `materiaux` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `organisations`
+-- Table structure for table `organisations`
 --
 
 CREATE TABLE `organisations` (
@@ -190,7 +190,7 @@ CREATE TABLE `organisations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `organisations`
+-- Dumping data for table `organisations`
 --
 
 INSERT INTO `organisations` (`id`, `name`, `activites`, `adresse`, `created-at`, `updated-at`, `creator_id`) VALUES
@@ -205,7 +205,7 @@ INSERT INTO `organisations` (`id`, `name`, `activites`, `adresse`, `created-at`,
 -- --------------------------------------------------------
 
 --
--- Structure de la table `sells`
+-- Table structure for table `sells`
 --
 
 CREATE TABLE `sells` (
@@ -220,7 +220,7 @@ CREATE TABLE `sells` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tickets`
+-- Table structure for table `tickets`
 --
 
 CREATE TABLE `tickets` (
@@ -237,7 +237,7 @@ CREATE TABLE `tickets` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -253,7 +253,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `password`, `tel`, `type`, `created_at`, `updated_at`) VALUES
@@ -290,38 +290,38 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `password`, `tel`, `type`,
 (31, 'aloua', 'tereee', 'as@mail', 'ff', 5656, 1, '2022-09-20 14:41:37', '2022-09-20 14:41:37');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `actors`
+-- Indexes for table `actors`
 --
 ALTER TABLE `actors`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_actors_demandes1_idx` (`demandes_id`);
 
 --
--- Index pour la table `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `demandes`
+-- Indexes for table `demandes`
 --
 ALTER TABLE `demandes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_demandes_events_idx` (`event_id`);
 
 --
--- Index pour la table `displacements`
+-- Indexes for table `displacements`
 --
 ALTER TABLE `displacements`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_displacements_demandes1_idx` (`demandes_id`);
 
 --
--- Index pour la table `events`
+-- Indexes for table `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`),
@@ -329,28 +329,28 @@ ALTER TABLE `events`
   ADD KEY `fk_events_organisations1_idx` (`organisation_id`);
 
 --
--- Index pour la table `location`
+-- Indexes for table `location`
 --
 ALTER TABLE `location`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_location_demandes1_idx` (`demandes_id`);
 
 --
--- Index pour la table `materiaux`
+-- Indexes for table `materiaux`
 --
 ALTER TABLE `materiaux`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_materiaux_demandes1_idx` (`demandes_id`);
 
 --
--- Index pour la table `organisations`
+-- Indexes for table `organisations`
 --
 ALTER TABLE `organisations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_organisations_users1_idx` (`creator_id`);
 
 --
--- Index pour la table `sells`
+-- Indexes for table `sells`
 --
 ALTER TABLE `sells`
   ADD PRIMARY KEY (`id`),
@@ -358,7 +358,7 @@ ALTER TABLE `sells`
   ADD KEY `fk_sells_users1_idx` (`client_id`);
 
 --
--- Index pour la table `tickets`
+-- Indexes for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD PRIMARY KEY (`id`),
@@ -366,141 +366,135 @@ ALTER TABLE `tickets`
   ADD KEY `fk_tickets_categories1_idx` (`categories_id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `actors`
+-- AUTO_INCREMENT for table `actors`
 --
 ALTER TABLE `actors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `demandes`
+-- AUTO_INCREMENT for table `demandes`
 --
 ALTER TABLE `demandes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT pour la table `displacements`
+-- AUTO_INCREMENT for table `displacements`
 --
 ALTER TABLE `displacements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `events`
+-- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT pour la table `location`
+-- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `materiaux`
+-- AUTO_INCREMENT for table `materiaux`
 --
 ALTER TABLE `materiaux`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `organisations`
+-- AUTO_INCREMENT for table `organisations`
 --
 ALTER TABLE `organisations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT pour la table `sells`
+-- AUTO_INCREMENT for table `sells`
 --
 ALTER TABLE `sells`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `tickets`
+-- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `actors`
+-- Constraints for table `actors`
 --
 ALTER TABLE `actors`
-  ADD CONSTRAINT `fk_actors_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_actors_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
--- Contraintes pour la table `demandes`
+-- Constraints for table `demandes`
 --
 ALTER TABLE `demandes`
-  ADD CONSTRAINT `fk_demandes_events` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_demandes_events` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
--- Contraintes pour la table `displacements`
+-- Constraints for table `displacements`
 --
 ALTER TABLE `displacements`
-  ADD CONSTRAINT `fk_displacements_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_displacements_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
--- Contraintes pour la table `events`
+-- Constraints for table `events`
 --
 ALTER TABLE `events`
-  ADD CONSTRAINT `fk_events_organisations1` FOREIGN KEY (`organisation_id`) REFERENCES `organisations` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_events_users` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_events_organisations1` FOREIGN KEY (`organisation_id`) REFERENCES `organisations` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `fk_events_users` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
--- Contraintes pour la table `location`
+-- Constraints for table `location`
 --
 ALTER TABLE `location`
-  ADD CONSTRAINT `fk_location_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_location_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
--- Contraintes pour la table `materiaux`
+-- Constraints for table `materiaux`
 --
 ALTER TABLE `materiaux`
-  ADD CONSTRAINT `fk_materiaux_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_materiaux_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
--- Contraintes pour la table `organisations`
---
-ALTER TABLE `organisations`
-  ADD CONSTRAINT `fk_organisations_users1` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Contraintes pour la table `sells`
+-- Constraints for table `sells`
 --
 ALTER TABLE `sells`
-  ADD CONSTRAINT `fk_sells_tickets1` FOREIGN KEY (`tickets_id`) REFERENCES `tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_sells_users1` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_sells_tickets1` FOREIGN KEY (`tickets_id`) REFERENCES `tickets` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `fk_sells_users1` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
--- Contraintes pour la table `tickets`
+-- Constraints for table `tickets`
 --
 ALTER TABLE `tickets`
-  ADD CONSTRAINT `fk_tickets_categories1` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_tickets_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_tickets_categories1` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `fk_tickets_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

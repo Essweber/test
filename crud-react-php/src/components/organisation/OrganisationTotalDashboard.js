@@ -1,3 +1,4 @@
+
 import GetCookie from "../cookie/GetCookie";
 
 
@@ -23,6 +24,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(faUser, faEnvelope, faLock);
 
 let id;
+let user;
 if (GetCookie('id')) {
   id = GetCookie('id');
   if (id != 2) {
@@ -50,6 +52,13 @@ export default function OrganisationTotalDashboard() {
     });
   }
 
+  if (GetCookie('logged')) {
+  user = JSON.parse(GetCookie('logged'));
+  if (user.type != 1) {
+    console.log('sorry you are not ...');
+    navigate('/connexion');
+  } else {
+    console.log('welcome');
 
   return (
     <div>
@@ -90,4 +99,10 @@ export default function OrganisationTotalDashboard() {
       </div>
     </div>
   )
+   }
+}
+else{
+  console.log('no session found ...');
+  navigate('/connexion');
+}
 }

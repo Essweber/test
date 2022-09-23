@@ -1,17 +1,27 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import RemoveCookie from ".././cookie/RemoveCookie";
+import GetCookie from ".././cookie/GetCookie";
 import Button from 'react-bootstrap/Button';
 
 
 export default function OrganisateurPage() {
 
+     const handleClick = (event) => {
+        console.log('clickk btn');
+if(GetCookie('logged')){
+
+}
+        // const name = event.target.name;
+        // const value = event.target.value;
+    }
 
     return (
         <div>
             <h1>Organisateur</h1>
-          <Button href="/organisation/create" variant="primary">Creer un profil</Button>
+          <Button onClick={handleClick} variant="primary">Creer un profil</Button>
+          {/* <Button href="/organisation/create" variant="primary">Creer un profil</Button> */}
 
             <h1>En quoi nous pouvons vous aider</h1>
             <p>

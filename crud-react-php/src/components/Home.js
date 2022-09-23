@@ -53,26 +53,27 @@ export default function Home() {
       <Navbar className="home_nav" collapseOnSelect expand="lg" variant="dark">
         {/* <Container> */}
         <Navbar.Brand className="home_nav_logo" href="/">
-<img
+          <img
             className="home-logo"
             src={eazyevent}
             alt="First slide"
           />
           EazyEvent
-          </Navbar.Brand>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#features">A propos</Nav.Link>
             <Nav.Link href="#pricing">Contact</Nav.Link>
             <NavDropdown title="Services" id="collasible-nav-dropdown">
+              <NavDropdown.Item >Services</NavDropdown.Item>
               <NavDropdown.Item href="/services/organisateur">Organisateur</NavDropdown.Item>
               <NavDropdown.Item href="/services/participant">Participant</NavDropdown.Item>
             </NavDropdown>
-           
+
           </Nav>
-              <Button className="btn-transparent" href="inscription" variant="primary">Inscription</Button>
-              <Button className="btn-white" href="Connexion" variant="primary">Connexion</Button>
+          <Button className="btn-transparent" href="inscription" variant="primary">Inscription</Button>
+          <Button className="btn-white" href="Connexion" variant="primary">Connexion</Button>
         </Navbar.Collapse>
         {/* </Container> */}
       </Navbar>
@@ -82,14 +83,14 @@ export default function Home() {
       {/* <div></div> */}
       <Carousel >
         <Carousel.Item interval={2000}>
-          
+
           <img
             className="d-block"
             src={slide1}
             alt="First slide"
           />
           <Carousel.Caption>
-          <div className="welcome-text"><h1>Nous gérons tout ce qui concerne l'évènementiel</h1></div>
+            <div className="welcome-text"><h1>Nous gérons tout ce qui concerne l'évènementiel</h1></div>
             {/* <h3>First slide label</h3>
                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
           </Carousel.Caption>
@@ -124,98 +125,98 @@ export default function Home() {
       </Carousel>
 
       {/* </div> */} <Container>
-      <div className="home-content">
+        <div className="home-content">
 
 
-        <Card className="home-card">
-          <Card.Body >
-            <Card.Title>Organisateur</Card.Title>
-            <Card.Text>
-            Nous collaborons avec plusieurs
-partenaires pour l’organisation et la
-réussite de votre évènement
-            </Card.Text>
-            <Button className="btn-transparent card-btn" href="/services/organisateur" variant="primary">Voir plus</Button>
-          </Card.Body>
-        </Card>
+          <Card className="home-card">
+            <Card.Body >
+              <Card.Title>Organisateur</Card.Title>
+              <Card.Text>
+                Nous collaborons avec plusieurs
+                partenaires pour l’organisation et la
+                réussite de votre évènement
+              </Card.Text>
+              <Button className="btn-transparent card-btn" href="/services/organisateur" variant="primary">Voir plus</Button>
+            </Card.Body>
+          </Card>
 
-        <Card className="home-card">
-          <Card.Body>
-            <Card.Title>Participant</Card.Title>
-            <Card.Text>
-            Nous exposons les évènements
-disponibles et des tickets de
-participation que vous pouvez
-acheter
-            </Card.Text>
-            <Button className="btn-transparent card-btn" href="/services/participant" variant="primary">voir plus</Button>
-          </Card.Body>
-        </Card>
-        
-      </div>
- 
-      <div className="form-container">
-        <h1 className="form-title">N’hésitez pas à nous contacter</h1>
-        <form action="" className="contact-form" onSubmit={handleSubmit}>
-          <div className="inputs">
-            <input className="contact-input" type="text" placeholder="Nom" />
-            <input className="contact-input" type="text" placeholder="Prenom" />
-            <input className="contact-input" type="text" placeholder="Email" />
-            <input className="contact-input contact-btn" type="submit" value={"Envoyer"} />
+          <Card className="home-card">
+            <Card.Body>
+              <Card.Title>Participant</Card.Title>
+              <Card.Text>
+                Nous exposons les évènements
+                disponibles et des tickets de
+                participation que vous pouvez
+                acheter
+              </Card.Text>
+              <Button className="btn-transparent card-btn" href="/services/participant" variant="primary">voir plus</Button>
+            </Card.Body>
+          </Card>
+
+        </div>
+
+        <div className="form-container">
+          <h1 className="form-title">N’hésitez pas à nous contacter</h1>
+          <form action="" className="contact-form" onSubmit={handleSubmit}>
+            <div className="inputs">
+              <input className="contact-input" type="text" placeholder="Nom" />
+              <input className="contact-input" type="text" placeholder="Prenom" />
+              <input className="contact-input" type="text" placeholder="Email" />
+              <input className="contact-input contact-btn" type="submit" value={"Envoyer"} />
+            </div>
+            <div className="contact-texterea">
+              <textarea className="contact-msg" name="message" id="" cols="30" rows="10" placeholder="Votre message"></textarea>
+            </div>
+          </form>
+        </div>
+      </Container>
+      <div className="footer-container">
+
+
+        <Container>
+          <div className="footer-content">
+            <div className="footer-column">
+              <h3>Qui somme nous ?</h3>
+              <span>
+                Nous collaborons avec plusieurs
+                partenaires pour l’organisation et la
+                réussite de votre évènement
+              </span>
+
+              <h3>Moyens de paiement</h3>
+              <div className="logopaypal">
+                <img
+                  src={paypal}
+                  alt="First slide"
+                />
+              </div>
+              <span>
+                Nous collaborons avec plusieurs
+                partenaires pour l’organisation et la
+                réussite de votre évènement
+              </span>
+            </div>
+            <div className="footer-column">
+              <h3>Nos perspectives</h3>
+              <span>
+                Nous collaborons avec plusieurs
+                partenaires pour l’organisation et la
+                réussite de votre évènement collaborons avec plusieurs
+                partenaires pour l’organisation et la
+                réussite de votre évènement
+              </span>
+            </div>
+            <div className="footer-column">
+              <h3>Nos coordonnées</h3>
+              <span>
+                Nous collaborons avec plusieurs
+                partenaires pour l’organisation et la
+                réussite de votre évènement
+              </span>
+            </div>
           </div>
-          <div className="contact-texterea">
-            <textarea className="contact-msg" name="message" id="" cols="30" rows="10" placeholder="Votre message"></textarea>
-          </div>
-        </form>
+        </Container>
       </div>
-</Container>
-<div className="footer-container">
-
-
-<Container>
-  <div className="footer-content">
-    <div className="footer-column">
-      <h3>Qui somme nous ?</h3>
-      <span>
-      Nous collaborons avec plusieurs
-partenaires pour l’organisation et la
-réussite de votre évènement
-      </span>
-
-      <h3>Moyens de paiement</h3>
-      <div className="logopaypal">
-      <img
-            src={paypal}
-            alt="First slide"
-          />
-      </div>
-      <span>
-      Nous collaborons avec plusieurs
-partenaires pour l’organisation et la
-réussite de votre évènement
-      </span>
-    </div>
-    <div className="footer-column">
-    <h3>Nos perspectives</h3>
-      <span>
-      Nous collaborons avec plusieurs
-partenaires pour l’organisation et la
-réussite de votre évènement collaborons avec plusieurs
-partenaires pour l’organisation et la
-réussite de votre évènement
-      </span>
-    </div>
-    <div className="footer-column">
-    <h3>Nos coordonnées</h3>
-      <span>
-      Nous collaborons avec plusieurs
-partenaires pour l’organisation et la
-réussite de votre évènement
-      </span>
-    </div>
-  </div>
-</Container>
-    </div>
     </div>
   )
 }
