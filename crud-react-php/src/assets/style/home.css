@@ -16,6 +16,7 @@ body, html{
 img{
     width: 100%;
 }
+.home_nav_logo
 .slider{
     height: 100vh;
 }
@@ -148,7 +149,13 @@ padding: 10px;
     background-color: #406cdc;
     justify-content: space-between;
 }
-
+.navbar-brand:hover{
+color: var(--blue);
+}
+.lg:hover{
+color: var(--blue);
+transform: scale(1.3);
+}
 /* liens */
 
 .nav-link{
@@ -245,4 +252,21 @@ font-weight: bold;
 .logopaypal{
     width: 100px;
     margin: 20px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE 720px */
+
+
+@media only screen and (max-width: 800px) {
+  
 }

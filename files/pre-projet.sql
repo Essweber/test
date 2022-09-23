@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 22, 2022 at 02:37 PM
+-- Generation Time: Sep 23, 2022 at 12:01 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.1.0
 
@@ -138,7 +138,8 @@ INSERT INTO `events` (`id`, `name`, `type`, `start_date`, `start_houre`, `end_da
 (1, 'trr', 'rtyrrrrrr', '2022-09-06', '12:12:00', '2022-09-06', '15:18:00', 'togo', 'boom', 'physique', '2022-09-19 10:20:45', '2022-09-19 10:20:45', 1, 1),
 (2, 'loto', 'education', '2022-08-30', '14:01:00', '2022-09-05', '21:00:00', 'kara', 'dgree', 'les deux', '2022-09-19 10:34:49', '2022-09-19 10:34:49', 1, 1),
 (3, 'loto', 'pop hit', '2022-09-06', '04:01:00', '2022-09-07', '01:04:00', 'kara', 'mopoo', 'en ligne', '2022-09-19 19:50:58', '2022-09-19 19:50:58', 1, 1),
-(4, 'pop', 'education', '2022-09-06', '02:02:00', '2022-09-13', '02:02:00', 'kara', 'hjgd', 'physique', '2022-09-20 13:49:45', '2022-09-20 13:49:45', 1, 1);
+(4, 'pop', 'education', '2022-09-06', '02:02:00', '2022-09-13', '02:02:00', 'kara', 'hjgd', 'physique', '2022-09-20 13:49:45', '2022-09-20 13:49:45', 1, 1),
+(5, 'der', '2', '2022-09-07', '05:05:00', '2022-09-08', '05:05:00', 'kara', 'tyht', 'physique', '2022-09-23 09:22:47', '2022-09-23 09:22:47', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -195,12 +196,36 @@ CREATE TABLE `organisations` (
 
 INSERT INTO `organisations` (`id`, `name`, `activites`, `adresse`, `created-at`, `updated-at`, `creator_id`) VALUES
 (1, 'pop', 'der', 'der', '2022-09-17 02:36:10', '2022-09-17 02:35:58', 1),
-(2, 'pop', 'retro', 'der', '2022-09-17 02:51:22', '2022-09-17 02:51:22', 1),
-(3, 'pop', 'der', 'der', '2022-09-17 03:41:37', '2022-09-17 03:41:37', 1),
-(4, 'dergred', 'derpolo', 'derhich', '2022-09-17 14:07:33', '2022-09-17 14:07:33', 2),
-(5, 'ozer', 'popnop', 'hereze', '2022-09-18 23:52:50', '2022-09-18 23:52:50', 1),
-(6, 'ozer', 'popnop', 'derhich', '2022-09-19 14:28:50', '2022-09-19 14:28:50', 2),
-(7, 'der', 'popnop', 'derhich', '2022-09-20 12:03:47', '2022-09-20 12:03:47', 1);
+(6, 'Mix Techno', 'Maintenance informatique', 'kara ville sud', '2022-09-22 19:47:56', '2022-09-19 14:28:50', 2),
+(8, 'ALOUA PRODUCT', 'REPARATION', 'kara ville sud', '2022-09-22 23:10:42', '2022-09-22 23:09:19', 38),
+(9, 'Mix Techno', 'popnop', 'derhich', '2022-09-22 23:33:23', '2022-09-22 23:33:23', 36);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `category_id`, `title`, `body`, `author`, `created_at`) VALUES
+(1, 1, 'Technology Post One', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.', 'Sam Smith', '2022-09-22 16:09:04'),
+(2, 2, 'Gaming Post One', 'Adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque.', 'Kevin Williams', '2022-09-22 16:09:04'),
+(3, 1, 'Technology Post Two', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.', 'Sam Smith', '2022-09-22 16:09:04'),
+(4, 4, 'Entertainment Post One', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.', 'Mary Jackson', '2022-09-22 16:09:04'),
+(5, 4, 'Entertainment Post Two', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.', 'Mary Jackson', '2022-09-22 16:09:04'),
+(6, 1, 'Technology Post Three', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.', 'Sam Smith', '2022-09-22 16:09:04');
 
 -- --------------------------------------------------------
 
@@ -258,7 +283,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `password`, `tel`, `type`, `created_at`, `updated_at`) VALUES
 (1, 'aloua', 'lo', 'ess@mail', 'part', 2222, 2, '2022-09-11 01:05:25', '2022-09-11 01:05:25'),
-(2, 'alo', 'lo', 'ess@mail', 'adm', 2222, 1, '2022-09-11 01:05:25', '2022-09-11 01:05:25'),
+(2, 'Wassao', 'Ruth', 'wass@mail', 'adm', 2222, 1, '2022-09-11 01:05:25', '2022-09-11 01:05:25'),
 (3, 'as', 'lo', 'ess@mail', 'api', 44, 2, '2022-09-15 00:06:35', '2022-09-15 00:06:35'),
 (4, 'sd', 'sd', 'sd', 'sdf', 99999922, 2, '2022-09-15 08:50:04', '2022-09-15 08:50:04'),
 (5, 'papa', 'koko', 'pa', 'p5', 55, 2, '2022-09-15 09:50:07', '2022-09-15 09:50:07'),
@@ -271,23 +296,23 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `password`, `tel`, `type`,
 (12, 'bonsoa', 'mp', 'mail.com', 'pro', 5656, 1, '2022-09-20 11:06:38', '2022-09-20 11:06:38'),
 (13, 'tereee', 'tereee', 'as@mail', 'koko', 3212, 1, '2022-09-20 14:16:49', '2022-09-20 14:16:49'),
 (14, 'aloua', 'tereee', 'ess', 'p5', 55, 2, '2022-09-20 14:21:26', '2022-09-20 14:21:26'),
-(15, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:24:03', '2022-09-20 14:24:03'),
-(16, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:24:41', '2022-09-20 14:24:41'),
 (17, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:24:47', '2022-09-20 14:24:47'),
-(18, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:25:53', '2022-09-20 14:25:53'),
-(19, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:25:53', '2022-09-20 14:25:53'),
-(20, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:25:53', '2022-09-20 14:25:53'),
 (21, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:25:54', '2022-09-20 14:25:54'),
-(22, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:25:58', '2022-09-20 14:25:58'),
-(23, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:26:06', '2022-09-20 14:26:06'),
-(24, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:26:43', '2022-09-20 14:26:43'),
-(25, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:26:44', '2022-09-20 14:26:44'),
 (26, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:27:00', '2022-09-20 14:27:00'),
 (27, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:27:01', '2022-09-20 14:27:01'),
 (28, 'aloua', 'lo', 'mail.com', 'ff', 2222, 1, '2022-09-20 14:27:01', '2022-09-20 14:27:01'),
 (29, 'aloua', 'tereee', 'mail.com', 'adm', 55, 1, '2022-09-20 14:27:42', '2022-09-20 14:27:42'),
 (30, 'aloua', 'tereee', 'mail.com', 'adm', 55, 1, '2022-09-20 14:29:14', '2022-09-20 14:29:14'),
-(31, 'aloua', 'tereee', 'as@mail', 'ff', 5656, 1, '2022-09-20 14:41:37', '2022-09-20 14:41:37');
+(31, 'aloua', 'tereee', 'as@mail', 'ff', 5656, 1, '2022-09-20 14:41:37', '2022-09-20 14:41:37'),
+(32, 'aloua', 'esso', 'esso@gmail.com', 'admin', 90809080, 1, '2022-09-22 18:09:54', '2022-09-22 18:09:54'),
+(33, 'kaza', 'emma', 'emma@gmail.com', '1234', 1214, 1, '2022-09-22 20:24:44', '2022-09-22 20:24:44'),
+(34, 'aloua', 'ruth', 'pa', 'az12', 4215, 1, '2022-09-22 20:29:15', '2022-09-22 20:29:15'),
+(35, 'as', 'tereee', 'mail.com', 'part', 2222, 1, '2022-09-22 20:32:00', '2022-09-22 20:32:00'),
+(36, 'papa', 'lo', 'ess', 'az12', 1214, 1, '2022-09-22 22:45:42', '2022-09-22 22:45:42'),
+(37, 'alo', 'koko', 'mail.com', 'boss', 5656, 1, '2022-09-22 22:49:33', '2022-09-22 22:49:33'),
+(38, 'ALOUA', 'ESSOTCHOSSIM', '@Mministredejesus', 'ff', 4215, 1, '2022-09-22 23:05:45', '2022-09-22 23:05:45'),
+(39, 'aloua', 'lo', 'mail.com', 'az12', 55, 1, '2022-09-22 23:31:23', '2022-09-22 23:31:23'),
+(40, 'alo', 'koko', 'ess', 'az12', 55, 1, '2022-09-22 23:33:10', '2022-09-22 23:33:10');
 
 --
 -- Indexes for dumped tables
@@ -350,6 +375,12 @@ ALTER TABLE `organisations`
   ADD KEY `fk_organisations_users1_idx` (`creator_id`);
 
 --
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sells`
 --
 ALTER TABLE `sells`
@@ -403,7 +434,7 @@ ALTER TABLE `displacements`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -421,7 +452,13 @@ ALTER TABLE `materiaux`
 -- AUTO_INCREMENT for table `organisations`
 --
 ALTER TABLE `organisations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sells`
@@ -439,62 +476,7 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `actors`
---
-ALTER TABLE `actors`
-  ADD CONSTRAINT `fk_actors_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `demandes`
---
-ALTER TABLE `demandes`
-  ADD CONSTRAINT `fk_demandes_events` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `displacements`
---
-ALTER TABLE `displacements`
-  ADD CONSTRAINT `fk_displacements_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `events`
---
-ALTER TABLE `events`
-  ADD CONSTRAINT `fk_events_organisations1` FOREIGN KEY (`organisation_id`) REFERENCES `organisations` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `fk_events_users` FOREIGN KEY (`creator_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `location`
---
-ALTER TABLE `location`
-  ADD CONSTRAINT `fk_location_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `materiaux`
---
-ALTER TABLE `materiaux`
-  ADD CONSTRAINT `fk_materiaux_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `sells`
---
-ALTER TABLE `sells`
-  ADD CONSTRAINT `fk_sells_tickets1` FOREIGN KEY (`tickets_id`) REFERENCES `tickets` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `fk_sells_users1` FOREIGN KEY (`client_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `tickets`
---
-ALTER TABLE `tickets`
-  ADD CONSTRAINT `fk_tickets_categories1` FOREIGN KEY (`categories_id`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `fk_tickets_demandes1` FOREIGN KEY (`demandes_id`) REFERENCES `demandes` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
