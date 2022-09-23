@@ -1,9 +1,10 @@
-
-body, html{
+body,
+html {
     margin: 0px;
     padding: 0px;
-    background-color: var(--cendre) ;
+    background-color: var(--cendre);
 }
+
 /* variable */
 :root {
     --blue: #406cdc;
@@ -11,24 +12,39 @@ body, html{
     --cendre: #e2e2e2;
     --noir_maron: #242323;
     --noir: #000000;
-  }
+}
 
-img{
+img {
     width: 100%;
 }
-.home_nav_logo
-.slider{
+
+.home_nav_logo .slider {
     height: 100vh;
 }
-.carousel-item{
-   height: 100vh;
-   /* overflow: hidden; */
+
+.carousel-item {
+    height: 100vh;
+    /* overflow: hidden; */
 }
-.carousel-caption{
-   height: 100%;
-color: transparent;
+
+.carousel-item img {
+    object-fit: cover;
 }
-.welcome-text{
+
+.carousel-caption {
+    height: 100%;
+    color: transparent;
+}
+
+.home-description {
+    margin: auto;
+    margin-top: 100px;
+    max-width: 1000px;
+
+    text-align: left;
+}
+
+.welcome-text {
     /* width: 100%; */
     position: absolute;
     width: 100%;
@@ -44,7 +60,8 @@ color: transparent;
     font-weight: bold;
 
 }
-.welcome-text h1{
+
+.welcome-text h1 {
     width: 60%;
     color: white;
     font-size: 3rem;
@@ -52,177 +69,206 @@ color: transparent;
     /* padding-bottom: 100px; */
 
 }
-.home-content{
+
+.home-content {
     max-width: 1000px;
-    height: 100vh;
+    height: auto;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: auto;
+    padding: 100px 50px;
 }
 
-.form-container{
-    /* display: flex;
-    flex-direction: column; */
+.form-container {
     max-width: 1000px;
-    height: 70vh;
     margin: auto;
+    margin-bottom: 100px;
 }
-.welcome-img{
+
+.welcome-img {
+    /* object-fit: cover; */
     position: relative;
     height: 100vh;
     overflow: hidden;
 }
-.d-block{
+
+.d-block {
     height: 100vh;
 }
-.contact-form{
+
+.contact-form {
     width: 100%;
     max-width: 1000px;
     display: flex;
     justify-content: space-between;
     margin: auto;
-    
+
 }
-.inputs{
+
+.inputs {
     width: 47%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-   
+
 }
-.contact-input{
-height: 50px;
-border:1px solid rgba(71, 71, 71, 0.308);
-padding: 10px;
+
+.contact-input {
+    height: 50px;
+    border: 1px solid rgba(71, 71, 71, 0.308);
+    padding: 10px;
 }
-.contact-texterea{
+
+.contact-texterea {
     width: 47%;
 
 }
-.contact-msg{
+
+.contact-msg {
     padding: 10px;
     width: 100%;
-    border:1px solid rgba(71, 71, 71, 0.308);
+    border: 1px solid rgba(71, 71, 71, 0.308);
 }
-.contact-btn{
+
+.contact-btn {
     background-color: var(--blue);
     color: var(--white);
     font-weight: bold;
     cursor: pointer;
 }
-.contact-btn:hover{
+
+.contact-btn:hover {
     background-color: #0a53be;
     color: var(--white);
     cursor: pointer;
 }
-.form-title{
-   text-align: left;
-   font-weight: bold;
-   color: var(--blue);
-   margin-bottom: 30px;
-   
+
+.form-title {
+    text-align: left;
+    font-weight: bold;
+    color: var(--blue);
+    margin-bottom: 30px;
+
 }
-.home_nav{
-  
-      background-color: var(--blue);
+
+.home_nav {
+
+    background-color: var(--blue);
     height: 70px;
     z-index: 100;
     color: white;
 
 }
-.home_nav_logo{
-     background-color: #afbbd9;
-   color: var(--blue);
+
+.home_nav_logo {
+    background-color: #afbbd9;
+    color: var(--blue);
     font-weight: bold;
     height: 100%;
-  width: 200px;
+    width: 200px;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-#responsive-navbar-nav{
+#responsive-navbar-nav {
     background-color: #406cdc;
     justify-content: space-between;
 }
-.navbar-brand:hover{
-color: var(--blue);
+
+.navbar-brand:hover {
+    color: var(--blue);
 }
-.lg:hover{
-color: var(--blue);
-transform: scale(1.3);
+
+.lg:hover {
+    color: var(--blue);
+    transform: scale(1.3);
 }
+
 /* liens */
 
-.nav-link{
+.nav-link {
     color: var(--white);
     font-weight: bold;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     background-color: var(--cendre);
 }
-.dropdown-item{
+
+.dropdown-item {
     background-color: var(--noir_maron);
     text-align: center;
-    color: var(--cendre) ;
-    border-top: 1px solid  var(--cendre);
+    color: var(--cendre);
+    border-top: 1px solid var(--cendre);
 }
+
 /* .btn{
     background-color: transparent;
     border: 1px solid  var(--white);
 } */
-.btn-transparent{
+.btn-transparent {
     background-color: var(--blue);
-    
-    border: 1px solid  var(--white);
+
+    border: 1px solid var(--white);
     margin: 15px;
     width: 120px;
 }
-.btn-white{
+
+.btn-white {
     background-color: var(--white);
     color: var(--blue);
-    border: 1px solid  var(--white);
+    border: 1px solid var(--white);
     margin-right: 35px;
     width: 120px;
 }
-.home-card{
+
+.home-card {
     width: 35%;
     min-width: 20rem;
     height: 350px;
     padding: 20px;
-    
-    
-    }
-    .home-logo{
-        width: 50px;
-    }
-    .card-body{
-        display: flex;
-        flex-direction: column;
+
+
+}
+
+.home-logo {
+    width: 50px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    }
-    .card-title{
-        margin-bottom: 15px;
-    }
-    .card-text{
-        height: 65%;
-        display: flex;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.card-text {
+    height: 65%;
+    display: flex;
     align-items: center;
-    }
-    .card-btn{
+}
+
+.card-btn {
     margin: 0px;
-    }
-.me-auto{
+}
+
+.me-auto {
     margin: auto;
 }
 
-.navbar-toggler{
+.navbar-toggler {
     position: absolute;
     width: 50px;
     height: 40px;
@@ -232,30 +278,44 @@ transform: scale(1.3);
 
 /* FOOTER */
 
-.footer-container{
+.footer-container {
     width: 100%;
     background-color: var(--blue);
     color: var(--cendre);
 }
-.footer-content{
-display: flex;
-justify-content: space-between;
+
+.footer-content {
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
 }
-.footer-column{
-width: 30%;
-text-align: left;
+
+.footer-column {
+    width: 30%;
+    text-align: left;
 }
-.footer-column h3{
-margin-top: 35px;
-font-weight: bold;
+
+.footer-column h3 {
+    margin-top: 35px;
+    font-weight: bold;
 }
-.logopaypal{
+
+.logopaypal {
     width: 100px;
     margin: 20px 0px;
 }
 
+.phone {
+    display: none;
+    visibility: hidden;
+    width: 100%;
+    margin-top: 15px;
+}
 
-
+.web {
+    display: block;
+    visibility: visible;
+}
 
 
 
@@ -268,5 +328,112 @@ font-weight: bold;
 
 
 @media only screen and (max-width: 800px) {
-  
+    
+
+    #responsive-navbar-nav {
+        padding-top: 70px;
+    }
+
+    .welcome-text h1 {
+        width: 80%;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        /* padding-bottom: 100px; */
+
+    }
+
+    .home-content {
+        max-width: auto;
+        height: 80vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0px;
+        padding: 0px;
+
+    }
+
+    .home-card {
+        width: 35%;
+        min-width: 20rem;
+        height: 350px;
+        padding: 20px;
+
+        margin-top: 50px;
+    }
+
+    .form-container {
+        width: 90%;
+        padding-top: 50px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .contact-form {
+        width: 80%;
+        max-width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        margin: auto;
+
+    }
+
+    .inputs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* margin-bottom: 25px; */
+
+    }
+
+    .contact-input {
+        margin-bottom: 15px;
+    }
+
+    .contact-texterea {
+        width: 100%;
+    }
+
+    .web {
+        display: none;
+        visibility: hidden;
+    }
+
+    .phone {
+        display: block;
+        visibility: visible;
+    }
+
+    .home-description {
+        margin: auto;
+        margin-top: 50px;
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 100px;
+        text-align: left;
+    }
+
+    .footer-content {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 30px;
+    }
+
+    .footer-column {
+        width: 95%;
+        margin: auto;
+    }
+
+    .logopaypal {
+        width: 100px;
+        margin: 20px 0px;
+    }
 }

@@ -83,7 +83,8 @@ html {
 
 .home-content {
     max-width: 1000px;
-    height: 100vh;
+    height: auto;
+    
     position: relative;
     display: flex;
     align-items: center;

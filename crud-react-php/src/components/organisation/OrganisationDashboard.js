@@ -8,7 +8,7 @@ import "../../assets/style/dashboard.css";
 // btn
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import eazyevent from "../../assets/images/logo-eazyevent.png";
+import eazyevent from "../../assets/images/logo-eazyevent.webp";
 
 import axios from "axios"
 import { useEffect, useState } from "react";
@@ -159,7 +159,7 @@ export default function OrganisationDashbord() {
 
                 <div className="section2-card-top-separate">
                   <div className="section2-card-icon">
-                    <FontAwesomeIcon icon="fa-solid fa-user" />
+                  <FontAwesomeIcon icon="fa-solid fa-ticket" />
                   </div>
 
                   <div className="section2-card-title">
@@ -180,7 +180,7 @@ export default function OrganisationDashbord() {
 
                 <div className="section2-card-top">
                   <div className="section2-card-icon">
-                    <FontAwesomeIcon icon="fa-solid fa-user" />
+                  <FontAwesomeIcon icon="fa-solid fa-ticket-simple" />
                   </div>
 
                   <div className="section2-card-title">

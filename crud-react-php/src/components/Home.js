@@ -4,11 +4,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import slide1 from "../assets/images/slide1.jpg";
-import slide2 from "../assets/images/slide2.jpg";
-import slide3 from "../assets/images/slide3.jpg";
-import paypal from "../assets/images/logo-paypal.png";
-import eazyevent from "../assets/images/logo-eazyevent.png";
+import slide1 from "../assets/images/slide1.webp";
+import slide2 from "../assets/images/slide2.webp";
+import slide3 from "../assets/images/slide3.webp";
+import paypal from "../assets/images/logo-paypal.webp";
+import eazyevent from "../assets/images/logo-eazyevent.webp";
 import "../assets/style/home.css";
 import { useNavigate } from "react-router-dom";
 
@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar className="home_nav" collapseOnSelect expand="lg" variant="dark">
+      <Navbar className="home_nav fixed-top" collapseOnSelect expand="lg" variant="dark">
         {/* <Container> */}
         <Navbar.Brand className="home_nav_logo" href="/">
           <img
@@ -72,15 +72,15 @@ export default function Home() {
             </NavDropdown>
 
           </Nav>
-          <Button className="btn-transparent" href="inscription" variant="primary">Inscription</Button>
-          <Button className="btn-white" href="Connexion" variant="primary">Connexion</Button>
+          <Button className="btn-transparent" href="/inscription" variant="primary">Inscription</Button>
+          <Button className="btn-white" href="/Connexion" variant="primary">Connexion</Button>
         </Navbar.Collapse>
         {/* </Container> */}
       </Navbar>
 
-      {/* <div className="home-header"> */}
 
-      {/* <div></div> */}
+      {/* ******************************SLIDERS */}
+
       <Carousel >
         <Carousel.Item interval={2000}>
 
@@ -125,6 +125,14 @@ export default function Home() {
       </Carousel>
 
       {/* </div> */} <Container>
+        <div className="home-description">
+          <h3 className="form-title home-description-title">En quoi nous pouvons vous aider ?</h3>
+          <div>Vous organisez une conférence, une formation, un concert, un match de foot ou tout autre évènement nous voyons simplement de quoi vous disposez et nous vous proposons le reste selon vos désirs. Pour commencer vous devez créer votre profil sur notre site, en suite nous allons vous suivre étape par étape jusqu’à votre satisfaction.</div>
+        <br />
+        <br />
+          <h3 className="form-title home-description-title">Comment est-ce-que nous le faisons concrètement ?</h3>
+          <div>Vous organisez une conférence, une formation, un concert, un match de foot ou tout autre évènement Nous proposons un ensemble d’éléments nécessaire pour un évènement et vous choisissez ce qui vous est nécessaire</div>
+        </div>
         <div className="home-content">
 
 
@@ -149,7 +157,7 @@ export default function Home() {
                 participation que vous pouvez
                 acheter
               </Card.Text>
-              <Button className="btn-transparent card-btn" href="/services/participant" variant="primary">voir plus</Button>
+              <Button className="btn-transparent card-btn" variant="primary">voir plus</Button>
             </Card.Body>
           </Card>
 
@@ -162,10 +170,12 @@ export default function Home() {
               <input className="contact-input" type="text" placeholder="Nom" />
               <input className="contact-input" type="text" placeholder="Prenom" />
               <input className="contact-input" type="text" placeholder="Email" />
-              <input className="contact-input contact-btn" type="submit" value={"Envoyer"} />
+              <input className="contact-input contact-btn web" type="submit" value={"Envoyer"} />
             </div>
             <div className="contact-texterea">
               <textarea className="contact-msg" name="message" id="" cols="30" rows="10" placeholder="Votre message"></textarea>
+
+              <input className="contact-input contact-btn phone" type="submit" value={"Envoyer"} />
             </div>
           </form>
         </div>

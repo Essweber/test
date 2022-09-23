@@ -4,7 +4,18 @@ import { Link } from "react-router-dom";
 import RemoveCookie from ".././cookie/RemoveCookie";
 import GetCookie from ".././cookie/GetCookie";
 import Button from 'react-bootstrap/Button';
+import paypal from "../../assets/images/logo-paypal.webp";
+import eazyevent from "../../assets/images/logo-eazyevent.webp";
+import "../../assets/style/home.css";
+import Carousel from 'react-bootstrap/Carousel';
+// Navbar
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
+// btn
+import Card from 'react-bootstrap/Card';
 
 export default function OrganisateurPage() {
 
@@ -19,6 +30,33 @@ if(GetCookie('logged')){
 
     return (
         <div>
+              <Navbar className="home_nav fixed-top" collapseOnSelect expand="lg" variant="dark">
+        {/* <Container> */}
+        <Navbar.Brand className="home_nav_logo" href="/">
+          <img
+            className="home-logo"
+            src={eazyevent}
+            alt="First slide"
+          />
+          EazyEvent
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#features">A propos</Nav.Link>
+            <Nav.Link href="#pricing">Contact</Nav.Link>
+            <NavDropdown title="Services" id="collasible-nav-dropdown">
+              <NavDropdown.Item >Services</NavDropdown.Item>
+              <NavDropdown.Item href="/services/organisateur">Organisateur</NavDropdown.Item>
+              <NavDropdown.Item href="/services/participant">Participant</NavDropdown.Item>
+            </NavDropdown>
+
+          </Nav>
+          <Button className="btn-transparent" href="inscription" variant="primary">Inscription</Button>
+          <Button className="btn-white" href="Connexion" variant="primary">Connexion</Button>
+        </Navbar.Collapse>
+        {/* </Container> */}
+      </Navbar>
             <h1>Organisateur</h1>
           <Button onClick={handleClick} variant="primary">Creer un profil</Button>
           {/* <Button href="/organisation/create" variant="primary">Creer un profil</Button> */}
