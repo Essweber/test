@@ -3,7 +3,6 @@
 
 import axios from "axios"
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import slide1 from "../assets/images/slide1.webp";
 import slide2 from "../assets/images/slide2.webp";
 import slide3 from "../assets/images/slide3.webp";
@@ -63,12 +62,12 @@ export default function Home() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">A propos</Nav.Link>
-            <Nav.Link href="#pricing">Contact</Nav.Link>
+            <Nav.Link href="#">A propos</Nav.Link>
+            <Nav.Link href="#">Contact</Nav.Link>
             <NavDropdown title="Services" id="collasible-nav-dropdown">
               <NavDropdown.Item >Services</NavDropdown.Item>
               <NavDropdown.Item href="/services/organisateur">Organisateur</NavDropdown.Item>
-              <NavDropdown.Item href="/services/participant">Participant</NavDropdown.Item>
+              <NavDropdown.Item href="#">Participant</NavDropdown.Item>
             </NavDropdown>
 
           </Nav>
@@ -144,7 +143,7 @@ export default function Home() {
                 partenaires pour l’organisation et la
                 réussite de votre évènement
               </Card.Text>
-              <Button className="btn-transparent card-btn" href="/services/organisateur" variant="primary">Voir plus</Button>
+              <Button className="btn-transparent card-btn" href="/services/organisateur" variant="primary">Créer un profil</Button>
             </Card.Body>
           </Card>
 

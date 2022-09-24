@@ -60,14 +60,13 @@ console.log(response.data);
 
         axios.put(`http://localhost/test/api-php-natif/api/organisation/update.php/?id=${id}`, inputs).then(function(response){
             console.log(response.data);
-            navigate('/organisation/list');
         });
         
         axios.put(`http://localhost/test/api-php-natif/api/user/update.php/?id=${user.id}`, user).then(function(response){
             console.log(response.data);
-            navigate('/organisation/list');
+            
         });
-        
+        navigate('/services/organisateur/dashboard');
     }
     
     if (logged) {

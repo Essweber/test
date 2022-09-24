@@ -1,18 +1,13 @@
 import GetCookie from "../cookie/GetCookie";
 // Navbar
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import "../../assets/style/dashboard.css";
 // btn
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import eazyevent from "../../assets/images/logo-eazyevent.webp";
 
 import axios from "axios"
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
@@ -20,11 +15,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons';
-// import the library
-// import { library } from '@fortawesome/fontawesome-svg-core';
-
-// import your icons
-// import { faMoneyBill } from '@fortawesome/pro-solid-svg-icons';
 import { faCode, faHighlighter, fas } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
