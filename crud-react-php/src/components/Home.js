@@ -10,7 +10,7 @@ import paypal from "../assets/images/logo-paypal.webp";
 import eazyevent from "../assets/images/logo-eazyevent.webp";
 import "../assets/style/home.css";
 import { useNavigate } from "react-router-dom";
-
+import React, { Component }  from 'react';
 
 import Carousel from 'react-bootstrap/Carousel';
 // Navbar
@@ -32,7 +32,7 @@ export default function Home() {
   }, []);
 
   function getUsers() {
-    axios.get('http://localhost/test/api-php-natif/api/user/read.php').then(function (response) {
+    axios.get('https://api-eazyevent.herokuapp.com/api/user/read.php').then(function (response) {
       // console.log(response.data);
       setUsers(response.data);
     });

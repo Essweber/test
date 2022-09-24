@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
+import React, { Component }  from 'react';
 export default function EditUser() {
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export default function EditUser() {
     }, []);
 
     function getUser() {
-        axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php?id=${id}`).then(function(response) {
+        axios.get(`https://api-eazyevent.herokuapp.com/api/user/read_single.php?id=${id}`).then(function(response) {
             console.log(response.data);
             setInputs(response.data);
         });

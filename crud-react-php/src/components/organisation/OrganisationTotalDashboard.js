@@ -11,7 +11,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 // btn
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import React, { Component }  from 'react';
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -46,7 +46,7 @@ export default function OrganisationTotalDashboard() {
 
   function getOrganisation() {
     // axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php`).then(function (response) {
-    axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php?id=${id}`).then(function (response) {
+    axios.get(`https://api-eazyevent.herokuapp.com/api-php-natif/api/user/read_single.php?id=${id}`).then(function (response) {
 
       setOrganisation(response.data);
     });

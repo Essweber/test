@@ -5,7 +5,7 @@ import "../../assets/style/dashboard.css";
 // btn
 import Button from 'react-bootstrap/Button';
 import eazyevent from "../../assets/images/logo-eazyevent.webp";
-
+import React, { Component }  from 'react';
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +49,7 @@ export default function OrganisationDashbord() {
 
   function getOrganisation() {
     // axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php`).then(function (response) {
-    axios.get(`http://localhost/test/api-php-natif/api/organisation/read_single.php?user_id=${user_id}`).then(function (response) {
+    axios.get(`https://api-eazyevent.herokuapp.com/api/organisation/read_single.php?user_id=${user_id}`).then(function (response) {
       console.log(response.data);
       setOrganisation(response.data);
       // const data = response.data;

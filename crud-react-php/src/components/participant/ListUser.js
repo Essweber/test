@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import React, { Component }  from 'react';
 import { Link } from "react-router-dom";
 
 export default function ListUser() {
@@ -10,14 +11,14 @@ export default function ListUser() {
     }, []);
 
     function getUsers() {
-        axios.get('http://localhost/test/api-php-natif/api/user/read.php').then(function(response) {
+        axios.get('https://api-eazyevent.herokuapp.com/api/user/read.php').then(function(response) {
             console.log(response.data);
             setUsers(response.data);
         });
     }
 
     const deleteUser = (id) => {
-        axios.delete(`http://localhost/test/api-php-natif/api/user/delete.php/${id}`).then(function(response){
+        axios.delete(`https://api-eazyevent.herokuapp.com/api/user/delete.php/${id}`).then(function(response){
             // console.log(id);
             getUsers();
         });

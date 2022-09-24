@@ -11,7 +11,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom';
-
+import React, { Component }  from 'react';
 export default function Connexion() {
     const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export default function Connexion() {
         console.log('submit');
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
+        axios.post('https://api-eazyevent.herokuapp.com/api/user/authentification.php', inputs)
             // axios.post('http://localhost/test/api-php-natif/jwt-auth', inputs)
             .then(function (response) {
                 let data = response.data;

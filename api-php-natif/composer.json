@@ -1,6 +1,0 @@
-{
-    "name": "hp/api-php-natif",
-    "require": {
-        "firebase/php-jwt": "^6.3"
-    }
-}

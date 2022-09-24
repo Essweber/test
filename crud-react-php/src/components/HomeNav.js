@@ -11,7 +11,7 @@ import paypal from "../assets/images/logo-paypal.webp";
 import eazyevent from "../assets/images/logo-eazyevent.webp";
 import "../assets/style/home.css";
 import { useNavigate } from "react-router-dom";
-
+import React, { Component }  from 'react';
 
 import Carousel from 'react-bootstrap/Carousel';
 // Navbar

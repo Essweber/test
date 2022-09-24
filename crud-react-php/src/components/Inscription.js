@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import SetCookie from "./cookie/SetCookie";
 import RemoveCookie from "./cookie/RemoveCookie";
 import {Link} from 'react-router-dom';
-
+import React, { Component }  from 'react';
 // import jwt_decode from "jwt-decode";
 import GetCookie from "./cookie/GetCookie";
 import Container from 'react-bootstrap/Container';
@@ -28,10 +28,10 @@ export default function Inscription() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost/test/api-php-natif/api/user/create.php', inputs).then(function (response) {
+        axios.post('https://api-eazyevent.herokuapp.com/api/user/create.php', inputs).then(function (response) {
             console.log(response.data);
             if (response.data.message === "user Created") {
-                axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
+                axios.post('https://api-eazyevent.herokuapp.com/api/user/authentification.php', inputs)
                     // axios.post('http://localhost/test/api-php-natif/jwt-auth', inputs)
                     .then(function (response) {
                         let data = response.data;
@@ -52,7 +52,7 @@ export default function Inscription() {
                                     data = JSON.stringify(data)
                                     SetCookie('logged', data);
         
-                                    navigate('/organisation/2/create');
+                                    navigate(`/organisation/create`);
                                     break;
                                 case 2:
                                     console.log("client / participant");

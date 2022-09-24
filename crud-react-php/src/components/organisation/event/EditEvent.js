@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
+import React, { Component }  from 'react';
 export default function Organisation_edit() {
     const navigate = useNavigate();
 

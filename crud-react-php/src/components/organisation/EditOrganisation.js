@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import React, { Component }  from 'react';
 
 export default function EditOrganisation() {
     const navigate = useNavigate();
@@ -25,14 +26,14 @@ if(GetCookie('logged')){
 
     function getOrganisation() {
        
-        axios.get(`http://localhost/test/api-php-natif/api/organisation/read_single.php?id=${id}`).then(function (response) {
+        axios.get(`https://api-eazyevent.herokuapp.com/api/organisation/read_single.php?id=${id}`).then(function (response) {
 console.log(response.data);
       setInputs(response.data);
       // const data = response.data;
     });
     const creator_id = logged.id;
    
-    axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php?id=${creator_id}`).then(function (response) {
+    axios.get(`https://api-eazyevent.herokuapp.com/api/user/read_single.php?id=${creator_id}`).then(function (response) {
 console.log(response.data);
       setUser(response.data);
       // const data = response.data;

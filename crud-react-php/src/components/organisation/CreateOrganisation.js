@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom';
-
+import React, { Component }  from 'react';
 import GetCookie from "../cookie/GetCookie";
 import Container from 'react-bootstrap/Container';
 // btn
@@ -26,7 +26,7 @@ if(GetCookie('logged')){
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post(`http://localhost/test/api-php-natif/api/organisation/create.php/?creator_id=${user_id}`, inputs).then(function(response){
+        axios.post(`https://api-eazyevent.herokuapp.com/api/organisation/create.php/?creator_id=1`, inputs).then(function(response){
             console.log(response.data);
             navigate('/services/organisateur/dashboard');
         });

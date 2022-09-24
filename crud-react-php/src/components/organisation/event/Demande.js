@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import React, { Component }  from 'react';
 // btn
 import Button from 'react-bootstrap/Button';
 

@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import React, { Component }  from 'react';
 export default function ListOrganisation() {
 
     const [organisations, setOrganisations] = useState([]);
@@ -10,14 +10,14 @@ export default function ListOrganisation() {
     }, []);
 
     function getOrganisations() {
-        axios.get('http://localhost/test/api-php-natif/api/organisation/read.php').then(function(response) {
+        axios.get('https://api-eazyevent.herokuapp.com/api/organisation/read.php').then(function(response) {
             console.log(response.data);
             setOrganisations(response.data);
         });
     }
 
     const deleteOrganisation = (id) => {
-        axios.delete(`http://localhost/test/api-php-natif/api/organisation/delete.php/${id}`).then(function(response){
+        axios.delete(`https://api-eazyevent.herokuapp.com/api/organisation/delete.php/${id}`).then(function(response){
             // console.log(id);
             getOrganisations();
         });
