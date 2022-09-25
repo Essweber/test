@@ -26,36 +26,30 @@ export default function Connexion() {
         console.log('submit');
         event.preventDefault();
 
-        axios.post('https://api-eazyevent.herokuapp.com/api/user/authentification.php', inputs)
+        axios.post('http://localhost/test/api-php-natif/api/user/authentification.php', inputs)
             // axios.post('http://localhost/test/api-php-natif/jwt-auth', inputs)
             .then(function (response) {
                 let data = response.data;
+                console.log(data);
                 let note;
                 let noteLocation = document.getElementById('note');
               
                
                 if (data && data.status === 1) {
-
-
-                    RemoveCookie('logged');
-
-
-                    switch (data.type) {
-                        case 1:
-                            console.log("Admin / admin");
-                            console.log(data.type);
-                            data = JSON.stringify(data)
+RemoveCookie('logged');
+data = JSON.stringify(data)
                             SetCookie('logged', data);
 
-                            navigate('/services/organisateur/dashboard');
+                    
+ console.log(data.organisation_profil);
+                    if (data.organisation_profil === 'true') {
+                       
+                         switch (data.type) {
+                        case 1:
+                           navigate('/services/organisateur/dashboard');
                             break;
                         case 2:
-                            console.log("client / participant");
-                            console.log(data.type);
-                            data = JSON.stringify(data)
-                            SetCookie('logged', data);
-
-                            navigate('/services/participant');
+                           navigate('/services/participant');
                             break;
 
                         default:
@@ -63,6 +57,12 @@ export default function Connexion() {
                             navigate('./');
                             break;
 
+                    }
+                    }
+
+                    else {
+                        console.log("no profil ");
+                        navigate('/organisation/create');
                     }
                   
                 } else {
@@ -97,13 +97,13 @@ export default function Connexion() {
                                 <label>email: </label>
                             </div>
                             <div className="full">
-                                <input type="text" name="email" onChange={handleChange} />
+                                <input type="email" required name="email" onChange={handleChange} />
                             </div>
                             <div className="full">
                                 <label>password: </label>
                             </div>
                             <div className="full">
-                                <input type="text" name="password" onChange={handleChange} />
+                                <input type="password" required name="password" onChange={handleChange} />
                             </div>
                             <div className="form-btn-div">
                                 <Button type="submit" className="form-btn">Envoyer</Button>

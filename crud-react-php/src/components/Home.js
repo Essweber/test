@@ -143,7 +143,7 @@ export default function Home() {
                 partenaires pour l’organisation et la
                 réussite de votre évènement
               </Card.Text>
-              <Button className="btn-transparent card-btn" href="/services/organisateur" variant="primary">Créer un profil</Button>
+              <Button className="btn-transparent card-btn" href="/services/organisateur" variant="primary">Lancez vous</Button>
             </Card.Body>
           </Card>
 
@@ -168,7 +168,7 @@ export default function Home() {
             <div className="inputs">
               <input className="contact-input" type="text" placeholder="Nom" />
               <input className="contact-input" type="text" placeholder="Prenom" />
-              <input className="contact-input" type="text" placeholder="Email" />
+              <input className="contact-input" type="email" placeholder="Email" />
               <input className="contact-input contact-btn web" type="submit" value={"Envoyer"} />
             </div>
             <div className="contact-texterea">

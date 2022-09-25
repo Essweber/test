@@ -48,8 +48,8 @@ export default function OrganisationDashbord() {
 
 
   function getOrganisation() {
-    // axios.get(`http://localhost/test/api-php-natif/api/user/read_single.php`).then(function (response) {
-    axios.get(`https://api-eazyevent.herokuapp.com/api/organisation/read_single.php?user_id=${user_id}`).then(function (response) {
+    // axios.get(`https://api-eazyevent.herokuapp.com/api/organisation/read_single.php?user_id=${user_id}`).then(function (response) {
+    axios.get(`http://localhost/test/api-php-natif/api/organisation/read_single.php?user_id=${user_id}`).then(function (response) {
       console.log(response.data);
       setOrganisation(response.data);
       // const data = response.data;
